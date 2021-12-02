@@ -24,6 +24,10 @@ export const routes: Routes = [
         component: NbLoginComponent,
       },
       {
+        path: 'home',
+        component: NbLoginComponent,
+      },
+      {
         path: 'login',
         component: NbLoginComponent,
       },
