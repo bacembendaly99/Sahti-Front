@@ -22,10 +22,11 @@ import {
 } from '@nebular/theme';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { Part1HomeComponent } from './part1-home/part1-home.component';
+import { Part2HomeComponent } from './part2-home/part2-home.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeHeaderComponent, Part1HomeComponent],
+  declarations: [AppComponent, HomeHeaderComponent, Part1HomeComponent, Part2HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
