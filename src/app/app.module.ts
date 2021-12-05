@@ -21,10 +21,11 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { HomeHeaderComponent } from './home-header/home-header.component';
+import { Part1HomeComponent } from './part1-home/part1-home.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeHeaderComponent],
+  declarations: [AppComponent, HomeHeaderComponent, Part1HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
