@@ -49,8 +49,8 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '', redirectTo: 'ngx-app', pathMatch: 'full' },
+
 ];
 
 const config: ExtraOptions = {

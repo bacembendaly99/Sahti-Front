@@ -23,27 +23,32 @@ import {
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { Part1HomeComponent } from './part1-home/part1-home.component';
 import { Part2HomeComponent } from './part2-home/part2-home.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import {ECommerceModule} from './pages/e-commerce/e-commerce.module';
+import {DashboardModule} from './pages/dashboard/dashboard.module';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeHeaderComponent, Part1HomeComponent, Part2HomeComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NbSidebarModule.forRoot(),
-    NbMenuModule.forRoot(),
-    NbDatepickerModule.forRoot(),
-    NbDialogModule.forRoot(),
-    NbWindowModule.forRoot(),
-    NbToastrModule.forRoot(),
-    NbChatModule.forRoot({
-      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
-    }),
-    CoreModule.forRoot(),
-    ThemeModule.forRoot(),
-  ],
+  declarations: [AppComponent, HomeHeaderComponent, Part1HomeComponent, Part2HomeComponent, HomePageComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NbSidebarModule.forRoot(),
+        NbMenuModule.forRoot(),
+        NbDatepickerModule.forRoot(),
+        NbDialogModule.forRoot(),
+        NbWindowModule.forRoot(),
+        NbToastrModule.forRoot(),
+        NbChatModule.forRoot({
+            messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+        }),
+        CoreModule.forRoot(),
+        ThemeModule.forRoot(),
+        ECommerceModule,
+        DashboardModule,
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
