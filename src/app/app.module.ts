@@ -20,9 +20,13 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HomeHeaderComponent } from './home-header/home-header.component';
+import { HomeP1Component } from './home-p1/home-p1.component';
+import { HomeP2Component } from './home-p2/home-p2.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomePageComponent, HomeHeaderComponent, HomeP1Component, HomeP2Component],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -8,6 +8,7 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import {HomePageComponent} from "./home-page/home-page.component";
 
 export const routes: Routes = [
   {
@@ -46,6 +47,7 @@ export const routes: Routes = [
     ],
   },
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  {path: 'home', component : HomePageComponent },
   { path: '**', redirectTo: 'pages' },
 ];
 
