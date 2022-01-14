@@ -1,3 +1,4 @@
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { Component } from '@angular/core';
 import { NbRegisterComponent } from '@nebular/auth';
 

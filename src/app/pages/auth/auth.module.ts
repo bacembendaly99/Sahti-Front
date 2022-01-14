@@ -13,21 +13,25 @@ import {
 } from '@nebular/theme';
 import {NgxLoginComponent} from '../login/login.component';
 import {NgxRegisterComponent} from '../register/register.component';
+import {PagesModule} from "../pages.module";
+import {IvyCarouselModule} from "angular-responsive-carousel";
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    NbAlertModule,
-    NbInputModule,
-    NbButtonModule,
-    NbCheckboxModule,
-    NgxAuthRoutingModule,
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        NbAlertModule,
+        NbInputModule,
+        NbButtonModule,
+        NbCheckboxModule,
+        NgxAuthRoutingModule,
 
-    NbAuthModule,
-  ],
+        NbAuthModule,
+        PagesModule,
+        IvyCarouselModule,
+    ],
   declarations: [
     NgxLoginComponent,
     NgxRegisterComponent,
