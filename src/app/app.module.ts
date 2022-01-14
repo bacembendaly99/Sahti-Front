@@ -13,14 +13,14 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {
-  NbButtonModule, NbCardModule,
-  NbChatModule,
-  NbDatepickerModule,
-  NbDialogModule,
-  NbMenuModule, NbPopoverModule,
-  NbSidebarModule,
-  NbToastrModule,
-  NbWindowModule,
+    NbButtonModule,
+    NbChatModule,
+    NbDatepickerModule,
+    NbDialogModule,
+    NbMenuModule,
+    NbSidebarModule,
+    NbToastrModule,
+    NbWindowModule,
 } from '@nebular/theme';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
@@ -28,26 +28,24 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NbSidebarModule.forRoot(),
-    NbMenuModule.forRoot(),
-    NbDatepickerModule.forRoot(),
-    NbDialogModule.forRoot(),
-    NbWindowModule.forRoot(),
-    NbToastrModule.forRoot(),
-    NbChatModule.forRoot({
-      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
-    }),
-    CoreModule.forRoot(),
-    ThemeModule.forRoot(),
-    NbPopoverModule,
-    NbButtonModule,
-    NbCardModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NbSidebarModule.forRoot(),
+        NbMenuModule.forRoot(),
+        NbDatepickerModule.forRoot(),
+        NbDialogModule.forRoot(),
+        NbWindowModule.forRoot(),
+        NbToastrModule.forRoot(),
+        NbChatModule.forRoot({
+            messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+        }),
+        CoreModule.forRoot(),
+        ThemeModule.forRoot(),
+        NbButtonModule,
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
