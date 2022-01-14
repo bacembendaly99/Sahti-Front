@@ -8,7 +8,7 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
-import {HomePageComponent} from './home-page/home-page.component';
+import {HomePageComponent} from './pages/home-page/home-page.component';
 
 export const routes: Routes = [
   {
