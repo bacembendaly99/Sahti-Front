@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeP1Component } from './home-p1.component';
+import { NgxRegisterComponent } from './register.component';
 
-describe('HomeP1Component', () => {
-  let component: HomeP1Component;
-  let fixture: ComponentFixture<HomeP1Component>;
+describe('RegisterComponent', () => {
+  let component: NgxRegisterComponent;
+  let fixture: ComponentFixture<NgxRegisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeP1Component ]
+      declarations: [ NgxRegisterComponent ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeP1Component);
+    fixture = TestBed.createComponent(NgxRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

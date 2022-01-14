@@ -4,6 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 import { BrowserModule } from '@angular/platform-browser';
+import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,21 +13,21 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {
+  NbButtonModule, NbCardModule,
   NbChatModule,
   NbDatepickerModule,
   NbDialogModule,
-  NbMenuModule,
+  NbMenuModule, NbPopoverModule,
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import { HomePageComponent } from './home-page/home-page.component';
-import { HomeHeaderComponent } from './home-header/home-header.component';
-import { HomeP1Component } from './home-p1/home-p1.component';
-import { HomeP2Component } from './home-p2/home-p2.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+
+
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, HomeHeaderComponent, HomeP1Component, HomeP2Component],
+  declarations: [AppComponent, HomePageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -43,6 +44,9 @@ import { HomeP2Component } from './home-p2/home-p2.component';
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    NbPopoverModule,
+    NbButtonModule,
+    NbCardModule,
   ],
   bootstrap: [AppComponent],
 })

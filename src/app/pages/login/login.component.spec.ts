@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeP2Component } from './home-p2.component';
+import { NgxLoginComponent } from './login.component';
 
-describe('HomeP2Component', () => {
-  let component: HomeP2Component;
-  let fixture: ComponentFixture<HomeP2Component>;
+describe('LoginComponent', () => {
+  let component: NgxLoginComponent;
+  let fixture: ComponentFixture<NgxLoginComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeP2Component ]
+      declarations: [ NgxLoginComponent ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeP2Component);
+    fixture = TestBed.createComponent(NgxLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
