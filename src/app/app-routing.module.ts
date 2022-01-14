@@ -16,7 +16,7 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
-  {
+  /*{
     path: 'auth',
     component: NbAuthComponent,
     children: [
@@ -45,10 +45,15 @@ export const routes: Routes = [
         component: NbResetPasswordComponent,
       },
     ],
-  },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  },*/
+  /*{ path: '', redirectTo: 'pages', pathMatch: 'full' },*/
   {path: 'home', component : HomePageComponent },
-  { path: '**', redirectTo: 'pages' },
+  // { path: '**', redirectTo: 'pages' },
+  {
+    path: 'auth',
+    loadChildren: () => import('./pages/auth/auth.module')
+      .then(m => m.NgxAuthModule),
+  },
 ];
 
 const config: ExtraOptions = {

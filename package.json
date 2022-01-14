@@ -43,7 +43,7 @@
     "@angular/platform-browser-dynamic": "^12.1.0",
     "@angular/router": "^12.1.0",
     "@asymmetrik/ngx-leaflet": "3.0.1",
-    "@nebular/auth": "8.0.0",
+    "@nebular/auth": "^8.0.0",
     "@nebular/eva-icons": "8.0.0",
     "@nebular/security": "8.0.0",
     "@nebular/theme": "8.0.0",
