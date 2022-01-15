@@ -25,7 +25,6 @@
              placeholder="Full name"
              autofocus
              fullWidth
-             [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
              [required]="getConfigValue('forms.validation.fullName.required')"
              [minlength]="getConfigValue('forms.validation.fullName.minLength')"
              [maxlength]="getConfigValue('forms.validation.fullName.maxLength')"
@@ -52,7 +51,6 @@
              placeholder="Full name"
              autofocus
              fullWidth
-             [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
              [required]="getConfigValue('forms.validation.fullName.required')"
              [minlength]="getConfigValue('forms.validation.fullName.minLength')"
              [maxlength]="getConfigValue('forms.validation.fullName.maxLength')"
@@ -104,7 +102,6 @@
            name="password"
            placeholder="Password"
            fullWidth
-           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.password.required')"
            [minlength]="getConfigValue('forms.validation.password.minLength')"
            [maxlength]="getConfigValue('forms.validation.password.maxLength')"
@@ -132,7 +129,6 @@
            name="rePass"
            placeholder="Confirm Password"
            fullWidth
-           [status]="email.dirty ? (email.invalid || password.value != rePass.value  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.password.required')"
            [attr.aria-invalid]="rePass.invalid && rePass.touched ? true : null">
     <ng-container *ngIf="rePass.invalid && rePass.touched">
