@@ -9,28 +9,12 @@ import {Router} from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class NgxRegisterComponent implements OnInit {
-  registerForm: FormGroup;
+export class NgxRegisterComponent {
 
-  constructor(
-    private authService: AuthenticationService,
-    private formBuilder: FormBuilder,
-    private router: Router,
-  ) {
-  }
+  user: any = {};
 
-  ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      firstName: [null, [Validators.required]],
-      lastName: [null, [Validators.required]],
-      email: [null, [
-        Validators.required,
-        Validators.email,
-      ]],
-      password: [null, [
-        Validators.required,
-        Validators.minLength(6),
-      ]],
-    });
+  processUserData(user: any) {
+    Object.assign(this.user, user);
+    console.log('user', this.user);
   }
 }// extends NbRegisterComponent {}
