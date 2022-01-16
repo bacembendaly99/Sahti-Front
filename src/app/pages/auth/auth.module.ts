@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
-import { NgxAuthRoutingModule } from './auth-routing.module';
-import { NbAuthModule } from '@nebular/auth';
+import {NgxAuthRoutingModule} from './auth-routing.module';
+import {NbAuthModule} from '@nebular/auth';
 import {
   NbAlertModule,
   NbButtonModule,
@@ -18,21 +18,22 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        RouterModule,
-        NbAlertModule,
-        NbInputModule,
-        NbButtonModule,
-        NbCheckboxModule,
-        NgxAuthRoutingModule,
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    NbAlertModule,
+    NbInputModule,
+    NbButtonModule,
+    NbCheckboxModule,
+    NgxAuthRoutingModule,
 
-        NbAuthModule,
-        PagesModule,
-        IvyCarouselModule,
-      NbDatepickerModule,
-    ],
+    NbAuthModule,
+    PagesModule,
+    IvyCarouselModule,
+    ReactiveFormsModule,
+    NbDatepickerModule,
+  ],
   declarations: [
     NgxLoginComponent,
     NgxRegisterComponent,

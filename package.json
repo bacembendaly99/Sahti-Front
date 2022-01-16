@@ -69,7 +69,7 @@
     "normalize.css": "6.0.0",
     "pace-js": "1.0.2",
     "roboto-fontface": "0.8.0",
-    "rxjs": "6.6.2",
+    "rxjs": "^6.6.2",
     "rxjs-compat": "6.3.0",
     "socicon": "3.0.5",
     "style-loader": "^1.1.3",
