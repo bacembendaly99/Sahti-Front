@@ -3,3 +3,11 @@
     margin-bottom: 2rem;
   }
 }
+carousel {
+  height: inherit;
+  .carousel-cell{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
