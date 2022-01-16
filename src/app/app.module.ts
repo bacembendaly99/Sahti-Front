@@ -24,6 +24,8 @@ import {
 } from '@nebular/theme';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from './pages/forms/forms.module';
 
 
 
@@ -46,7 +48,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
         CoreModule.forRoot(),
         ThemeModule.forRoot(),
         NbButtonModule,
-
+        FormsModule,
+        ReactiveFormsModule,
     ],
   bootstrap: [AppComponent],
 })
