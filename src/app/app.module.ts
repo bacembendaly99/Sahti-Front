@@ -26,6 +26,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 
 
 
+
 @NgModule({
   declarations: [AppComponent, HomePageComponent],
     imports: [
@@ -45,6 +46,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
         CoreModule.forRoot(),
         ThemeModule.forRoot(),
         NbButtonModule,
+
     ],
   bootstrap: [AppComponent],
 })

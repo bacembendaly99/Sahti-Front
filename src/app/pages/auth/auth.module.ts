@@ -8,13 +8,13 @@ import { NbAuthModule } from '@nebular/auth';
 import {
   NbAlertModule,
   NbButtonModule,
-  NbCheckboxModule,
+  NbCheckboxModule, NbDatepickerModule,
   NbInputModule,
 } from '@nebular/theme';
 import {NgxLoginComponent} from '../login/login.component';
 import {NgxRegisterComponent} from '../register/register.component';
-import {PagesModule} from "../pages.module";
-import {IvyCarouselModule} from "angular-responsive-carousel";
+import {PagesModule} from '../pages.module';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
 @NgModule({
@@ -31,6 +31,7 @@ import {IvyCarouselModule} from "angular-responsive-carousel";
         NbAuthModule,
         PagesModule,
         IvyCarouselModule,
+      NbDatepickerModule,
     ],
   declarations: [
     NgxLoginComponent,
