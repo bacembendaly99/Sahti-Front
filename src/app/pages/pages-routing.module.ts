@@ -1,15 +1,45 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 
-import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
-import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import {PagesComponent} from './pages.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {ECommerceComponent} from './e-commerce/e-commerce.component';
+import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
+import {HomeDoctorComponent} from './home-doctor/home-doctor.component';
+import {AjouterVisiteComponent} from './ajouter-visite/ajouter-visite.component';
+import {HistoriqueDocteurComponent} from './historique-docteur/historique-docteur.component';
+import {HomePatientComponent} from './home-patient/home-patient.component';
+import {DossierMedicalComponent} from './dossier-medical/dossier-medical.component';
+import {PrescriptionsComponent} from './prescriptions/prescriptions.component';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
+    {
+      path: 'prescriptions',
+      component: PrescriptionsComponent,
+    },
+    {
+      path: 'dossier-medical',
+      component: DossierMedicalComponent,
+    },
+    {
+      path: 'home-patient',
+      component: HomePatientComponent,
+    },
+    {
+      path: 'home-doctor',
+      component: HomeDoctorComponent,
+    },
+    {
+      path: 'ajouter-visite',
+      component: AjouterVisiteComponent,
+    },
+    {
+      path: 'historique-docteur',
+      component: HistoriqueDocteurComponent,
+    },
     {
       path: 'dashboard',
       component: ECommerceComponent,

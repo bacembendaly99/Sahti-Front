@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import {
-  NbAlertModule,
-  NbButtonModule,
-  NbCheckboxModule,
-  NbDatepickerModule,
-  NbInputModule,
-  NbMenuModule, NbRadioModule,
+    NbAlertModule,
+    NbButtonModule, NbCardModule,
+    NbCheckboxModule,
+    NbDatepickerModule,
+    NbInputModule,
+    NbMenuModule, NbRadioModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
@@ -19,6 +19,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterStep2Component } from './register/register-step2/register-step2.component';
 import { RegisterStep3Component } from './register/register-step3/register-step3.component';
 import { RegisterStep4Component } from './register/register-step4/register-step4.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AjouterVisiteComponent } from './ajouter-visite/ajouter-visite.component';
+import { HomeDoctorComponent } from './home-doctor/home-doctor.component';
+import { HistoriqueDocteurComponent } from './historique-docteur/historique-docteur.component';
+import {TablesModule} from "./tables/tables.module";
+import { HomePatientComponent } from './home-patient/home-patient.component';
+import { DossierMedicalComponent } from './dossier-medical/dossier-medical.component';
+import { PrescriptionsComponent } from './prescriptions/prescriptions.component';
 
 
 
@@ -39,6 +47,8 @@ import { RegisterStep4Component } from './register/register-step4/register-step4
     NbDatepickerModule,
     NbRadioModule,
     ReactiveFormsModule,
+    NbCardModule,
+    TablesModule,
   ],
     declarations: [
         PagesComponent,
@@ -46,6 +56,13 @@ import { RegisterStep4Component } from './register/register-step4/register-step4
         RegisterStep2Component,
         RegisterStep3Component,
         RegisterStep4Component,
+        AjouterVisiteComponent,
+        HomeDoctorComponent,
+        HistoriqueDocteurComponent,
+        HomePatientComponent,
+        DossierMedicalComponent,
+        PrescriptionsComponent,
+
     ],
   exports: [
     RegisterStep1Component,

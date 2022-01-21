@@ -15,6 +15,7 @@ import {NgxLoginComponent} from '../login/login.component';
 import {NgxRegisterComponent} from '../register/register.component';
 import {PagesModule} from '../pages.module';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {ResetPasswordComponent} from '../reset-password/reset-password.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
   declarations: [
     NgxLoginComponent,
     NgxRegisterComponent,
+    ResetPasswordComponent,
   ],
 })
 export class NgxAuthModule {

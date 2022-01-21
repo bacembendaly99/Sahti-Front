@@ -1,0 +1,47 @@
+<div class="row">
+  <h3>Today's Date : {{date | date: 'shortDate' }}</h3>
+</div>
+<br>
+<div class="row" fullWidth="true">
+<div class="col">
+<div class="row">
+  <div class="form-control-group" >
+    <label for="ajouter-visite">Ajouter Visite</label>
+    <input type="text" nbInput fullWidth placeholder="id du patient" id="ajouter-visite">
+  </div>
+</div>
+    <br>
+  <div class="row">
+  <div class="form-control-group " >
+    <label class="label" for="nouveau">Nouveau Patient?</label>
+
+    <nb-radio-group id="nouveau">
+ <!--     formControlName="gender"
+      name="gender" -->
+
+
+      <nb-radio [value]="0">Oui</nb-radio>
+      <nb-radio [value]="1">Non</nb-radio>
+
+    </nb-radio-group>
+  </div>
+  </div>
+<br>
+</div>
+<div class="col">
+
+    <div class="form-control-group" >
+      <label for="Symptoms">Symptomes</label>
+      <textarea style="height: 250px" type="text" nbInput fullWidth  id="Symptoms">  </textarea>
+    </div>
+
+</div>
+  <div class="col">
+
+    <div class="form-control-group" >
+      <label for="Prescriptions">Prescriptions</label>
+      <textarea style="height: 250px" type="text" nbInput fullWidth  id="Prescriptions">  </textarea>
+    </div>
+
+  </div>
+</div>

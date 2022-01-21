@@ -10,6 +10,7 @@ import {
 } from '@nebular/auth';
 import {NgxLoginComponent} from '../login/login.component';
 import {NgxRegisterComponent} from '../register/register.component';
+import {ResetPasswordComponent} from '../reset-password/reset-password.component';
 
 
 export const routes: Routes = [
@@ -41,6 +42,11 @@ export const routes: Routes = [
         path: 'reset-password',
         component: NbResetPasswordComponent,
       },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent, // <---
+      },
+
     ],
   },
 ];
