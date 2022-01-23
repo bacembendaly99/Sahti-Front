@@ -11,10 +11,25 @@ import {Router} from '@angular/router';
 })
 export class NgxRegisterComponent {
 
-  user: any = {};
+  constructor(private authService: AuthenticationService) {
+  }
+
+  user: any = {
+    'patient': {},
+  };
 
   processUserData(user: any) {
-    Object.assign(this.user, user);
+    Object.assign(this.user.patient, user);
     console.log('user', this.user);
   }
-}// extends NbRegisterComponent {}
+  processRoleData(role: any) {
+    Object.assign(this.user, role);
+    console.log('user', this.user);
+  }
+
+  register(message) {
+    if (message === 'register') {
+      this.authService.register(this.user);
+    }
+  }
+}

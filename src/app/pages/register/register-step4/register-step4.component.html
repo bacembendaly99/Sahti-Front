@@ -12,125 +12,122 @@
   </ul>
 </nb-alert>-->
 
-<form (ngSubmit)="register()" #form="ngForm" aria-labelledby="title">
+<form [formGroup]="registerForm4" (ngSubmit)="onSubmit()" aria-labelledby="title">
 
+  <div class="form-row">
+    <div class="form-group  col-md-4">
+      <div class="form-control-group" id="fcg1">
+        <label class="label" for="role" id="label">Are you ?</label>
+        <nb-radio-group formControlName="specialityType" id="role" class="rg">
 
+          <nb-radio [value]="'patient'" (click)="ChangeOption(1)">A normal patient</nb-radio>
+          <nb-radio [value]="'doctor'" (click)="ChangeOption(2)">A doctor</nb-radio>
+          <nb-radio [value]="'pharmacist'" (click)="ChangeOption(3)">A pharmacian</nb-radio>
+          <nb-radio [value]="'technician'" (click)="ChangeOption(4)">A technician</nb-radio>
 
-
-
-<div class="form-row">
-  <div class="form-group  col-md-4">
-    <div class="form-control-group" id="fcg1">
-      <label class="label" for="role" id="label">Are you ?</label>
-      <nb-radio-group
-        id="role" class="rg">
-
-        <nb-radio value="1" (click)="ChangeOption(1)">A normal patient</nb-radio>
-        <nb-radio value="2" (click)="ChangeOption(2)">A doctor</nb-radio>
-        <nb-radio value="3" (click)="ChangeOption(3)">A pharmacian</nb-radio>
-        <nb-radio value="4" (click)="ChangeOption(4)">A technician</nb-radio>
-
-      </nb-radio-group>
+        </nb-radio-group>
+      </div>
     </div>
+
+    <div class="form-group  col-md-5 sahti-4th-step-feild">
+      <div class="form-control-group" *ngIf="ShowDoctor">
+        <label class="label" for="DoctorNumber">DoctorNumber:</label>
+        <input
+          formControlName="doctorNumber"
+          nbInput
+          id="DoctorNumber"
+          placeholder="DoctorNumber">
+
+      </div>
+      <div class="form-control-group" *ngIf="ShowDoctor">
+        <div class="form-control-group" *ngIf="ShowDoctor">
+          <label class="label" for="grade">Grade:</label>
+          <input
+            nbInput
+            formControlName="grade"
+            id="grade"
+            placeholder="Grade">
+
+        </div>
+
+      </div>
+      <div class="form-control-group" *ngIf="ShowDoctor">
+        <div class="form-control-group" *ngIf="ShowDoctor">
+          <label class="label" for="speciality">Speciality:</label>
+          <input
+            nbInput
+            formControlName="speciality"
+            id="speciality"
+            placeholder="Speciality">
+
+        </div>
+
+      </div>
+      <div class="form-control-group" *ngIf="ShowDoctor">
+        <div class="form-control-group" *ngIf="ShowDoctor">
+          <label class="label" for="serviceHospital">ServiceHospital:</label>
+          <input
+            nbInput
+            formControlName="serviceHospital"
+            id="serviceHospital"
+            placeholder="ServiceHospital">
+
+        </div>
+
+      </div>
+      <div class="form-control-group" *ngIf="ShowDoctor||ShowTechnician">
+
+        <label class="label" for="officeLocalisation">OfficeLocalisation:</label>
+        <input
+          nbInput
+          formControlName="officeLocalisation"
+          id="officeLocalisation"
+          placeholder="OfficeLocalisation">
+
+
+      </div>
+      <div class="form-control-group" *ngIf="ShowPharmacian">
+
+        <label class="label" for="pharmacyLocalisation">Pharmacy Localisation:</label>
+        <input
+          nbInput
+          formControlName="pharmacyLocalisation"
+          id="pharmacyLocalisation"
+          placeholder="Pharmacy Localisation">
+
+
+      </div>
+      <div class="form-control-group" *ngIf="ShowTechnician">
+
+        <label class="label" for="officeType">Office Type:</label>
+        <input
+          nbInput
+          formControlName="officeType"
+          id="officeType"
+          placeholder="Office Type">
+
+
+      </div>
+      <div class="form-control-group" *ngIf="ShowTechnician">
+
+        <label class="label" for="workField">Work Field:</label>
+        <input
+          nbInput
+          formControlName="workField"
+          id="workField"
+          placeholder="Work Field">
+      </div>
+    </div>
+
+
   </div>
-
-  <div class="form-group  col-md-5 sahti-4th-step-feild">
-    <div class="form-control-group" *ngIf="ShowDoctor" >
-      <label class="label" for="DoctorNumber" >DoctorNumber:</label>
-      <input
-        nbInput
-        id="DoctorNumber"
-        placeholder="DoctorNumber">
-
-    </div>
-    <div class="form-control-group" *ngIf="ShowDoctor" >
-      <div class="form-control-group" *ngIf="ShowDoctor" >
-        <label class="label" for="grade" >Grade:</label>
-        <input
-          nbInput
-          id="grade"
-          placeholder="Grade">
-
-      </div>
-
-    </div>
-    <div class="form-control-group" *ngIf="ShowDoctor" >
-      <div class="form-control-group" *ngIf="ShowDoctor" >
-        <label class="label" for="speciality" >Speciality:</label>
-        <input
-          nbInput
-          id="speciality"
-          placeholder="Speciality">
-
-      </div>
-
-    </div>
-    <div class="form-control-group" *ngIf="ShowDoctor" >
-      <div class="form-control-group" *ngIf="ShowDoctor" >
-        <label class="label" for="serviceHospital" >ServiceHospital:</label>
-        <input
-          nbInput
-          id="serviceHospital"
-          placeholder="ServiceHospital">
-
-      </div>
-
-    </div>
-    <div class="form-control-group" *ngIf="ShowDoctor||ShowTechnician" >
-
-      <label class="label" for="officeLocalisation" >OfficeLocalisation:</label>
-      <input
-        nbInput
-        id="officeLocalisation"
-        placeholder="OfficeLocalisation">
-
-
-
-    </div>
-    <div class="form-control-group" *ngIf="ShowPharmacian" >
-
-      <label class="label" for="pharmacyLocalisation" >Pharmacy Localisation:</label>
-      <input
-        nbInput
-        id="pharmacyLocalisation"
-        placeholder="Pharmacy Localisation">
-
-
-
-    </div>
-    <div class="form-control-group" *ngIf="ShowTechnician" >
-
-      <label class="label" for="officeType" >Office Type:</label>
-      <input
-        nbInput
-        id="officeType"
-        placeholder="Office Type">
-
-
-
-    </div>
-    <div class="form-control-group" *ngIf="ShowTechnician" >
-
-      <label class="label" for="workField" >Work Field:</label>
-      <input
-        nbInput
-        id="workField"
-        placeholder="Work Field">
-    </div>
-  </div>
-
-
-</div>
-
-
-
 
 
   <button nbButton
           fullWidth
           status="success"
-          [disabled]="submitted || !form.valid"
-          [class.btn-pulse]="submitted">
+          [disabled]="!registerForm4.valid"
+          [class.btn-pulse]="true">
     Submit
   </button>
 </form>
