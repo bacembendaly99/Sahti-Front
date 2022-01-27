@@ -67,7 +67,7 @@ import { FormsModule } from '@angular/forms';
     ],
     exports: [
         WeatherComponent,
-        StatusCardComponent
-    ]
+        StatusCardComponent,
+    ],
 })
 export class DashboardModule { }

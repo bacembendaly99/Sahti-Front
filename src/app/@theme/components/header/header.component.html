@@ -12,17 +12,29 @@
     </a>
     <a class="logo" href="#" (click)="navigateHome()" style="">Sahti</a>
   </div>
+<!--  <nb-select-->
+<!--    status="primary"-->
+<!--    matRipple-->
+<!--    [selected]="currentTheme"-->
+<!--    (selectedChange)="changeTheme($event)"-->
+<!--  >-->
+<!--    <nb-option-->
+<!--      *ngFor="let theme of themes"-->
+<!--      [value]="theme.value"-->
+<!--      matRipple-->
+<!--    >{{ theme.name }}</nb-option>-->
+<!--  </nb-select>-->
   <nb-select
     status="primary"
     matRipple
-    [selected]="currentTheme"
-    (selectedChange)="changeTheme($event)"
+    [selected]="currentRole"
+    (selectedChange)="changeRole($event)"
   >
     <nb-option
-      *ngFor="let theme of themes"
-      [value]="theme.value"
+      *ngFor="let role of roles"
+      [value]="role.value"
       matRipple
-    >{{ theme.name }}</nb-option>
+    >{{ role.name }}</nb-option>
   </nb-select>
 </div>
 
@@ -35,7 +47,8 @@
         matRipple
         [matRippleUnbounded]="true"
         [matRippleCentered]="true"
-      ></nb-search></nb-action>
+      ></nb-search>
+    </nb-action>
     <nb-action
       class="control-item"
       icon="email-outline"

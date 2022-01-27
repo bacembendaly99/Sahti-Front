@@ -10,6 +10,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'home-outline',
     link: '/pages/home-doctor',
     home: true,
+    hidden: true,
   },
   {
     title: 'Ajouter visite',

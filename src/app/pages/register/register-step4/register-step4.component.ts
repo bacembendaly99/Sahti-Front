@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {NbRegisterComponent} from '@nebular/auth';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthenticationService} from '../../../services/authentication.service';
+import {AuthenticationService} from '../../../services/authentification/authentication.service';
 import {Router} from '@angular/router';
 import {SpecialityValidator} from '../../shared/validators/spedialityValidator';
 

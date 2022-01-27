@@ -23,7 +23,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { AjouterVisiteComponent } from './ajouter-visite/ajouter-visite.component';
 import { HomeDoctorComponent } from './home-doctor/home-doctor.component';
 import { HistoriqueDocteurComponent } from './historique-docteur/historique-docteur.component';
-import {TablesModule} from "./tables/tables.module";
+import {TablesModule} from './tables/tables.module';
 import { HomePatientComponent } from './home-patient/home-patient.component';
 import { DossierMedicalComponent } from './dossier-medical/dossier-medical.component';
 import { PrescriptionsComponent } from './prescriptions/prescriptions.component';

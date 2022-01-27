@@ -11,6 +11,7 @@ import {
 import {NgxLoginComponent} from '../login/login.component';
 import {NgxRegisterComponent} from '../register/register.component';
 import {ResetPasswordComponent} from '../reset-password/reset-password.component';
+import {ConfirmComponent} from './confirm/confirm.component';
 
 
 export const routes: Routes = [
@@ -45,6 +46,10 @@ export const routes: Routes = [
       {
         path: 'reset-password',
         component: ResetPasswordComponent, // <---
+      },
+      {
+        path: 'confirm-email',
+        component: ConfirmComponent,
       },
 
     ],
