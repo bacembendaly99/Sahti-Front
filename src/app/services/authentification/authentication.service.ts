@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {Patient} from "../../pages/shared/models/user";
+import {Patient} from '../../pages/shared/models/user';
 
 export interface LoginForm {
   email: string;
@@ -26,7 +26,7 @@ export class AuthenticationService {
         'email': loginForm.email,
         'password': loginForm.password,
       }).pipe(map((token) => {
-        const user: Patient = token.patient;
+      const user: Patient = token.patient;
       localStorage.setItem('accessToken', token.accessToken);
       localStorage.setItem('refreshToken', token.refreshToken);
       localStorage.setItem('user', JSON.stringify(user));
@@ -45,9 +45,12 @@ export class AuthenticationService {
     delete user['patient'].repeatPassword;
 
     return this.http.post<any>(
-      this.URL + '/create', user).subscribe((response: any) => {
-      // console.log('response', response);
-    });
+      this.URL + '/create', user);
+  }
+
+  confirmEmail(token: string) {
+    return this.http.post<any>(this.URL + '/confirm', {'token': token});
   }
 }
+
 // TODO: error handling view

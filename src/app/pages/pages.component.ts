@@ -364,9 +364,5 @@ export class PagesComponent {
     ];
   }
 
-  printSmth() {
-    console.log('im printing smth ! ');
-  }
-
   // menu = MENU_ITEMS;
 }

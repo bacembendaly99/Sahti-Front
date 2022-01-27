@@ -11,12 +11,12 @@ export class SpecialityValidator {
     const officeType = control.get('officeType').value;
     const workField = control.get('workField').value;
     if (control.get('specialityType').value === 'patient') return null;
+    let errors: {};
     if (control.get('specialityType').value === 'doctor') {
-      let errors = {};
+      errors = {};
       if (isNaN(doctorNumber)) errors['doctorNumberNaN'] = 'doctor number must be a number!';
       if (doctorNumber == null || doctorNumber === '') {
         errors['doctorNumberNull'] = 'doctor number is required!';
-        console.log(' doctor number is null');
       }
       if (grade == null || grade === '') errors['gradeNull'] = 'doctor grade is required!';
       if (speciality == null || speciality === '') errors['specialityNull'] = 'doctor speciality is required!';
@@ -26,8 +26,22 @@ export class SpecialityValidator {
       return null;
     }
     if (control.get('specialityType').value === 'pharmacist') {
+      errors = {};
+      if (pharmacyLocalisation == null || pharmacyLocalisation === '')
+        errors['pharmacyLocalisationNull'] = 'pharmacy localisation is required!';
+      if (errors !== {}) return errors;
+      return null;
     }
     if (control.get('specialityType').value === 'technician') {
+      errors = {};
+      if (officeLocalisation == null || officeLocalisation === '')
+        errors['officeLocalisationNull'] = 'office localisation is required!';
+      if (officeType == null || officeType === '')
+        errors['officeType'] = 'Office type is required!';
+      if (workField == null || workField === '')
+        errors['wordkField'] = 'Work field is required!';
+      if (errors !== {}) return errors;
+      return null;
     }
   }
 }

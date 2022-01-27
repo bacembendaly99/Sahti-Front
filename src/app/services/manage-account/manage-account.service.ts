@@ -24,7 +24,7 @@ export class ManageAccountService {
   constructor() {
 
     this.setCurrentUser();
-    console.log('current user', this.currentUser);
+    // console.log('current user', this.currentUser);
     if (this.currentUser.role === 'Doctor') this.roles.push({
       value: 'doctor',
       name: 'Doctor',
@@ -37,7 +37,7 @@ export class ManageAccountService {
       value: 'pharmacist',
       name: 'Pharmacist',
     });
-    console.log('roles : ', this.roles);
+    // console.log('roles : ', this.roles);
   }
 
   changeRole(newRole: string) {

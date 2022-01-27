@@ -7,7 +7,7 @@ import {NgxAuthRoutingModule} from './auth-routing.module';
 import {NbAuthModule} from '@nebular/auth';
 import {
   NbAlertModule,
-  NbButtonModule,
+  NbButtonModule, NbCardModule,
   NbCheckboxModule, NbDatepickerModule,
   NbInputModule,
 } from '@nebular/theme';
@@ -35,6 +35,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
     IvyCarouselModule,
     ReactiveFormsModule,
     NbDatepickerModule,
+    NbCardModule,
   ],
   declarations: [
     NgxLoginComponent,

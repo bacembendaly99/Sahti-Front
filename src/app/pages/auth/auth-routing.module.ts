@@ -2,9 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {
   NbAuthComponent,
-  NbLoginComponent,
   NbLogoutComponent,
-  NbRegisterComponent,
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
@@ -48,7 +46,7 @@ export const routes: Routes = [
         component: ResetPasswordComponent, // <---
       },
       {
-        path: 'confirm-email',
+        path: 'confirm/:token',
         component: ConfirmComponent,
       },
 
