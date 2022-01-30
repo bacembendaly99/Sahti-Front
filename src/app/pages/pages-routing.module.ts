@@ -11,30 +11,45 @@ import {HistoriqueDocteurComponent} from './historique-docteur/historique-docteu
 import {HomePatientComponent} from './home-patient/home-patient.component';
 import {DossierMedicalComponent} from './dossier-medical/dossier-medical.component';
 import {PrescriptionsComponent} from './prescriptions/prescriptions.component';
+import {ValiderPrescriptionComponent} from './valider-prescription/valider-prescription.component';
+import {AjouterVisiteTechnicienComponent} from './ajouter-visite-technicien/ajouter-visite-technicien.component';
+import {AjouterVisiteStep2Component} from './ajouter-visite-step2/ajouter-visite-step2.component';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
     {
+      path: 'ajouter-visite-technicien',
+      component: AjouterVisiteTechnicienComponent,
+    },
+    {
+      path: 'valider-prescription',
+      component: ValiderPrescriptionComponent,
+    },
+    {
       path: 'prescriptions',
       component: PrescriptionsComponent,
     },
     {
-      path: 'dossier-medical',
+      path: 'dossier-medical/:id',
       component: DossierMedicalComponent,
     },
     {
-      path: 'home-patient',
+      path: 'home-patient/:id',
       component: HomePatientComponent,
     },
     {
-      path: 'home-doctor',
+      path: 'home-doctor/:id',
       component: HomeDoctorComponent,
     },
     {
       path: 'ajouter-visite',
       component: AjouterVisiteComponent,
+    },
+    {
+      path: 'ajouter-visite/:id',
+      component: AjouterVisiteStep2Component,
     },
     {
       path: 'historique-docteur',

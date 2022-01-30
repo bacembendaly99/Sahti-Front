@@ -1,1 +1,12 @@
-<p>home-patient works!</p>
+<nb-card>
+  <nb-card-header>Patient Profile</nb-card-header>
+  <nb-card-body>
+    {{selectedPatient.firstName}}
+    {{selectedPatient.lastName}}
+    <br>
+    {{selectedPatient.birthday}}
+    <br>
+    {{selectedPatient.medicalRecord.bloodType}}
+
+  </nb-card-body>
+</nb-card>

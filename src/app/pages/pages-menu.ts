@@ -62,19 +62,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Voir historique',
-    icon: 'list-outline',
-    link: '/pages/historique-pharmacien',
-    home: true,
-  },
-  {
     title: 'Espace Technicien',
     group: true,
   },
   {
     title: 'Ajouter visite',
     icon: 'activity-outline',
-    link: '/pages/valider-prescription',
+    link: '/pages/ajouter-visite-technicien',
     home: true,
   },
   {

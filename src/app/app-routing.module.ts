@@ -12,7 +12,7 @@ import {
 import {HomePageComponent} from './pages/home-page/home-page.component';
 
 export const routes: Routes = [
-  /*{ path: '', redirectTo: 'pages', pathMatch: 'full' },*/
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module')
