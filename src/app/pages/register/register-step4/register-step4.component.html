@@ -37,6 +37,12 @@
           nbInput
           id="DoctorNumber"
           placeholder="DoctorNumber">
+        <ng-container
+          *ngIf="registerForm4.controls.doctorNumber.invalid && registerForm4.controls.doctorNumber.touched">
+          <p class="error-message" *ngIf="registerForm4.controls.doctorNumber.errors?.required">
+            doctorNumber is required!
+          </p>
+        </ng-container>
 
       </div>
       <div class="form-control-group" *ngIf="ShowDoctor">
@@ -47,6 +53,11 @@
             formControlName="grade"
             id="grade"
             placeholder="Grade">
+          <ng-container *ngIf="registerForm4.controls.grade.invalid && registerForm4.controls.grade.touched">
+            <p class="error-message" *ngIf="registerForm4.controls.grade.errors?.required">
+              Doctor number is required!
+            </p>
+          </ng-container>
 
         </div>
 
@@ -59,6 +70,11 @@
             formControlName="speciality"
             id="speciality"
             placeholder="Speciality">
+          <ng-container *ngIf="registerForm4.controls.speciality.invalid && registerForm4.controls.speciality.touched">
+            <p class="error-message" *ngIf="registerForm4.controls.speciality.errors?.required">
+              Doctor speciality is required!
+            </p>
+          </ng-container>
 
         </div>
 
@@ -94,7 +110,11 @@
           formControlName="pharmacyLocalisation"
           id="pharmacyLocalisation"
           placeholder="Pharmacy Localisation">
-
+        <ng-container *ngIf="registerForm4.controls.pharmacyLocalisation.invalid && registerForm4.controls.pharmacyLocalisation.touched">
+          <p class="error-message" *ngIf="registerForm4.controls.pharmacyLocalisation.errors?.required">
+            Pharmacy Localisation is required!
+          </p>
+        </ng-container>
 
       </div>
       <div class="form-control-group" *ngIf="ShowTechnician">
