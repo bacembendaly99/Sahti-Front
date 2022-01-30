@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {NbLoginComponent} from '@nebular/auth';
-import {AuthenticationService} from '../../services/authentication.service';
+import {AuthenticationService} from '../../services/authentification/authentication.service';
 import {NbAuthService} from '@nebular/auth/services/auth.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -39,7 +39,7 @@ export class NgxLoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.invalid) return;
     this.authService.login(this.loginForm.value).pipe(
-      map(token => this.router.navigate(['home'])),
+      map(token => this.router.navigate(['pages'])),
     ).subscribe();
   }
 } // extends NbLoginComponent {}

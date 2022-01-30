@@ -1,0 +1,12 @@
+<nb-card>
+  <nb-card-header>To Confirm Your Account, Please Click This Button !</nb-card-header>
+  <nb-card-body class="example-items-rows">
+    <button nbButton fullWidth (click)="onSubmit()" status="success">Confirm</button>
+  </nb-card-body>
+</nb-card>
+<nb-alert *ngIf="errors.alreadyConfirmed" status="danger">
+  {{errors.alreadyConfirmed}}
+</nb-alert>
+<nb-alert *ngIf="errors.internalError" status="danger">
+  Server error ! Please come back after a while !
+</nb-alert>

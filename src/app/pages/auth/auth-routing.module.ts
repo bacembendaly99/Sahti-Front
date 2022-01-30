@@ -2,15 +2,14 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {
   NbAuthComponent,
-  NbLoginComponent,
   NbLogoutComponent,
-  NbRegisterComponent,
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
 import {NgxLoginComponent} from '../login/login.component';
 import {NgxRegisterComponent} from '../register/register.component';
 import {ResetPasswordComponent} from '../reset-password/reset-password.component';
+import {ConfirmComponent} from './confirm/confirm.component';
 
 
 export const routes: Routes = [
@@ -45,6 +44,10 @@ export const routes: Routes = [
       {
         path: 'reset-password',
         component: ResetPasswordComponent, // <---
+      },
+      {
+        path: 'confirm/:token',
+        component: ConfirmComponent,
       },
 
     ],

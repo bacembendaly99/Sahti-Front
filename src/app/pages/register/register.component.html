@@ -12,8 +12,18 @@
     <ngx-register-step3 (sendUserData)="processUserData($event)"></ngx-register-step3>
   </div>
   <div class="carousel-cell">
-    <ngx-register-step4 (sendUserData)="processUserData($event)"></ngx-register-step4>
+    <ngx-register-step4 (sendUserData)="processRoleData($event)" (registerUser)="register($event)"></ngx-register-step4>
   </div>
 
 
 </carousel>
+
+<nb-alert *ngIf="errors.success" status="success">
+  You have been successfully authenticated!
+</nb-alert>
+<nb-alert *ngIf="errors.formDataError" status="danger">
+  Cannot create profile please verify your data !
+</nb-alert>
+<nb-alert *ngIf="errors.internalError" status="danger">
+  Server error ! Please come back after a while !
+</nb-alert>

@@ -130,7 +130,7 @@
       <p class="error-message" *ngIf="registerForm.controls.repeatPassword.errors?.required">
         Password confirmation is required!
       </p>
-      <p class="error-message" *ngIf="registerForm.controls.password.value != registerForm.controls.repeatPassword.value && !registerForm.controls.repeatPassword.errors?.required">
+      <p class="error-message" *ngIf="registerForm.hasError('passwordsNotMatching')">
         Password does not match the confirm password.
       </p>
     </ng-container>

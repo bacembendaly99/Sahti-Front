@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthenticationService} from '../../../services/authentication.service';
+import {AuthenticationService} from '../../../services/authentification/authentication.service';
 import {Router} from '@angular/router';
 
 
@@ -23,10 +23,15 @@ export class RegisterStep2Component implements OnInit {
     this.registerForm2 = this.formBuilder.group({
       cin: [null, [
         Validators.required,
-        // Validators.minLength(8),
-        // Validators.maxLength(8),
+        Validators.minLength(8),
+        Validators.maxLength(8),
       ]],
-      birthdate: [null, [
+      phoneNumber: [null, [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(8),
+      ]],
+      birthday: [null, [
         Validators.required,
       ]],
       gender: [null, [
@@ -45,8 +50,8 @@ export class RegisterStep2Component implements OnInit {
     this.sendUserDataToParent(this.registerForm2.value);
   }
 
-  get birthdate() {
-    return this.registerForm2.get('birthdate');
+  get birthday() {
+    return this.registerForm2.get('birthday');
   }
 
 

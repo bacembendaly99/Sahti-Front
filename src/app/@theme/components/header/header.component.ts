@@ -1,11 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
 
-import { UserData } from '../../../@core/data/users';
-import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
-import { Subject, Observable } from 'rxjs';
-import { RippleService } from '../../../@core/utils/ripple.service';
+import {UserData} from '../../../@core/data/users';
+import {LayoutService} from '../../../@core/utils';
+import {map, takeUntil} from 'rxjs/operators';
+import {Subject, Observable} from 'rxjs';
+import {RippleService} from '../../../@core/utils/ripple.service';
+import {ManageAccountService} from '../../../services/manage-account/manage-account.service';
 
 @Component({
   selector: 'ngx-header',
@@ -46,9 +47,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
+  roles = [];
+
+  currentRole = 'patient';
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
+  userMenu = [{title: 'Profile'}, {title: 'Log out'}];
 
   public constructor(
     private sidebarService: NbSidebarService,
@@ -58,12 +62,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private layoutService: LayoutService,
     private breakpointService: NbMediaBreakpointsService,
     private rippleService: RippleService,
+    private manageAccountService: ManageAccountService,
   ) {
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
         const themeName: string = theme?.name || '';
         return themeName.startsWith('material');
       }));
+    this.roles = manageAccountService.getRoles();
   }
 
   ngOnInit() {
@@ -73,7 +79,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((users: any) => this.user = users.nick);
 
-    const { xl } = this.breakpointService.getBreakpointsMap();
+    const {xl} = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
       .pipe(
         map(([, currentBreakpoint]) => currentBreakpoint.width < xl),
@@ -83,7 +89,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.themeService.onThemeChange()
       .pipe(
-        map(({ name }) => name),
+        map(({name}) => name),
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => {
@@ -99,6 +105,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
+  }
+
+  changeRole(roleName: string) {
+    this.manageAccountService.changeRole(roleName);
   }
 
   toggleSidebar(): boolean {
