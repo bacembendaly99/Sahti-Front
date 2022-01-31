@@ -5,7 +5,7 @@ import {
     NbCheckboxModule,
     NbDatepickerModule,
     NbInputModule,
-    NbMenuModule, NbRadioModule,
+    NbMenuModule, NbRadioModule, NbSelectModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
@@ -32,24 +32,25 @@ import { PrescriptionsComponent } from './prescriptions/prescriptions.component'
 
 
 @NgModule({
-  imports: [
-    PagesRoutingModule,
-    ThemeModule,
-    NbMenuModule,
-    DashboardModule,
-    ECommerceModule,
-    MiscellaneousModule,
-    FormsModule,
-    NbAlertModule,
-    NbInputModule,
-    NbCheckboxModule,
-    NbButtonModule,
-    NbDatepickerModule,
-    NbRadioModule,
-    ReactiveFormsModule,
-    NbCardModule,
-    TablesModule,
-  ],
+    imports: [
+        PagesRoutingModule,
+        ThemeModule,
+        NbMenuModule,
+        DashboardModule,
+        ECommerceModule,
+        MiscellaneousModule,
+        FormsModule,
+        NbAlertModule,
+        NbInputModule,
+        NbCheckboxModule,
+        NbButtonModule,
+        NbDatepickerModule,
+        NbRadioModule,
+        ReactiveFormsModule,
+        NbCardModule,
+        TablesModule,
+        NbSelectModule,
+    ],
     declarations: [
         PagesComponent,
         RegisterStep1Component,

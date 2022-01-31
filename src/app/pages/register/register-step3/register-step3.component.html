@@ -43,14 +43,17 @@
   </div>
   <div class="form-control-group">
     <label class="label" for="CivilStatus">CivilStatus:</label>
-    <input nbInput
-           formControlName="civilStatus"
-           id="CivilStatus"
-           name="civilStatus"
-           placeholder="CivilStatus"
-           autofocus
-           fullWidth
-           [attr.aria-invalid]="registerForm3.controls.civilStatus.invalid && registerForm3.controls.civilStatus.touched ? true : null">
+    <nb-select fullWidth id="CivilStatus" formControlName="civilStatus" placeholder="Select Civil Status" >
+      <nb-option *ngFor="let civil of civilStatusItems" value="{{civil.value}}">{{civil.name}}</nb-option>
+    </nb-select>
+<!--    <input nbInput-->
+<!--           formControlName="civilStatus"-->
+<!--           id="CivilStatus"-->
+<!--           name="civilStatus"-->
+<!--           placeholder="CivilStatus"-->
+<!--           autofocus-->
+<!--           fullWidth-->
+<!--           [attr.aria-invalid]="registerForm3.controls.civilStatus.invalid && registerForm3.controls.civilStatus.touched ? true : null">-->
     <!--           [required]="getConfigValue('forms.validation.fullName.required')"-->
     <!--           [minlength]="getConfigValue('forms.validation.fullName.minLength')"-->
     <!--           [maxlength]="getConfigValue('forms.validation.fullName.maxLength')"-->
@@ -72,7 +75,7 @@
            formControlName="socialStatus"
            id="SocialStatus"
            name="socialStatus"
-           placeholder="CivilStatus"
+           placeholder="Ex: working, student..."
            autofocus
            fullWidth
            [attr.aria-invalid]="registerForm3.controls.socialStatus.invalid && registerForm3.controls.socialStatus.touched ? true : null">
