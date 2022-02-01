@@ -3,6 +3,7 @@
     "node_modules/codelyzer"
   ],
   "rules": {
+
     "deprecation": {
       "severity": "warning"
     },
@@ -39,7 +40,7 @@
     "member-access": false,
     "no-arg": true,
     "no-console": [
-      true,
+      false,
       "debug",
       "log",
       "time",
