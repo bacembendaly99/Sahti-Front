@@ -19,6 +19,7 @@ export class NgxRegisterComponent {
   };
 
   errors = {
+    usedEmailOrCIN: null,
     internalError: null,
     formDataError: null,
     success: null,
@@ -26,6 +27,12 @@ export class NgxRegisterComponent {
 
   processUserData(user: any) {
     Object.assign(this.user.patient, user);
+    this.errors = {
+      usedEmailOrCIN: null,
+      internalError: null,
+      formDataError: null,
+      success: null,
+    };
     // console.log('user', this.user);
   }
 
@@ -40,12 +47,16 @@ export class NgxRegisterComponent {
         data => {},
         error => {
           console.log('error : ', error);
-          if (error.status === 0 || (error.status >= 400 && error.status < 500))
-            this.errors['internalError'] = error;
-          if (error.status === 500)
-            this.errors['formDataError'] = error;
-          if (error.success)
-            this.errors['success'] = true;
+          if (error.error.message.includes('Cin'))
+            this.errors['usedEmailOrCIN'] = error.error.message;
+          else {
+            if (error.status === 0 || (error.status >= 400 && error.status < 500))
+              this.errors['internalError'] = error.error.message;
+            if (error.status === 500)
+              this.errors['formDataError'] = error.error.message;
+            if (error.success)
+              this.errors['success'] = true;
+          }
         },
       );
     }

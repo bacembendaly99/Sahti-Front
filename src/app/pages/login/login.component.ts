@@ -4,7 +4,7 @@ import {AuthenticationService} from '../../services/authentification/authenticat
 import {NbAuthService} from '@nebular/auth/services/auth.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { map } from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'ngx-login',
@@ -18,10 +18,17 @@ export class NgxLoginComponent implements OnInit {
   password: string;
   loginForm: FormGroup;
 
+  errors = {
+    wrongEmailOrPwd: null,
+    other: null,
+  };
+
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-  ) {}
+  ) {
+  }
+
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl(null, [
@@ -38,8 +45,16 @@ export class NgxLoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.invalid) return;
-    this.authService.login(this.loginForm.value).pipe(
-      map(token => this.router.navigate(['pages'])),
-    ).subscribe();
+    this.authService.login(this.loginForm.value).subscribe(
+      data => {
+        this.router.navigate(['pages']);
+      },
+      error => {
+        console.log('error login: ', error);
+        if (error.error.message === 'Unauthorized')
+          this.errors['wrongEmailOrPwd'] = 'Wrong password or email !';
+        else this.errors['other'] = 'Oups ! Some error has occured !';
+      },
+    );
   }
 } // extends NbLoginComponent {}

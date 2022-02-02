@@ -21,9 +21,14 @@
 <nb-alert *ngIf="errors.success" status="success">
   You have been successfully authenticated!
 </nb-alert>
+<nb-alert *ngIf="errors.usedEmailOrCIN" status="danger">
+  {{errors.usedEmailOrCIN}}
+</nb-alert>
 <nb-alert *ngIf="errors.formDataError" status="danger">
   Cannot create profile please verify your data !
+  {{errors.formDataError}}
 </nb-alert>
 <nb-alert *ngIf="errors.internalError" status="danger">
   Server error ! Please come back after a while !
+  {{errors.internalError}}
 </nb-alert>

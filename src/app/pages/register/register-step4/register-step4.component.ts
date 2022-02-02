@@ -35,10 +35,7 @@ export class RegisterStep4Component implements OnInit {
         specialityType: [null, [
           Validators.required,
         ]],
-        doctorNumber: [null, [
-          Validators.minLength(8),
-          Validators.maxLength(8),
-        ]],
+        doctorNumber: [null, []],
         grade: [null, []],
         speciality: [null, []],
         serviceHospital: [null, []],
@@ -48,7 +45,7 @@ export class RegisterStep4Component implements OnInit {
         workField: [null, []],
       },
       {
-        validators: SpecialityValidator.verifySpecialityFeilds,
+        validators: SpecialityValidator.verifySpecialityFields,
       });
   }
 

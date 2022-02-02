@@ -83,3 +83,10 @@
 <section class="another-action" aria-label="Register">
   Don't have an account? <a class="text-link" routerLink="../register">Register</a>
 </section>
+
+<nb-alert *ngIf="errors.other" status="danger">
+  Server error ! Please come back after a while !
+</nb-alert>
+<nb-alert *ngIf="errors.wrongEmailOrPwd" status="danger">
+  {{errors.wrongEmailOrPwd}}
+</nb-alert>

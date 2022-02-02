@@ -50,4 +50,4 @@ export class RegisterStep1Component implements OnInit {
     this.sendUserDataToParent(this.registerForm.value);
   }
 }// extends NbRegisterComponent {}
-// TODO: verify empty user feilds
+// TODO: verify empty user fields
