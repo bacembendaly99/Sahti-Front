@@ -28,7 +28,7 @@ const routes: Routes = [{
       component: ValiderPrescriptionComponent,
     },
     {
-      path: 'prescriptions',
+      path: 'prescriptions/:id',
       component: PrescriptionsComponent,
     },
     {
@@ -50,10 +50,6 @@ const routes: Routes = [{
     {
       path: 'ajouter-visite/:id',
       component: AjouterVisiteStep2Component,
-    },
-    {
-      path: 'historique-docteur',
-      component: HistoriqueDocteurComponent,
     },
     {
       path: 'dashboard',

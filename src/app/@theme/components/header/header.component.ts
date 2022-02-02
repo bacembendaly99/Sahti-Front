@@ -7,6 +7,7 @@ import {map, takeUntil} from 'rxjs/operators';
 import {Subject, Observable} from 'rxjs';
 import {RippleService} from '../../../@core/utils/ripple.service';
 import {ManageAccountService} from '../../../services/manage-account/manage-account.service';
+import {AuthenticationService} from "../../../services/authentification/authentication.service";
 
 @Component({
   selector: 'ngx-header',
@@ -63,6 +64,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private breakpointService: NbMediaBreakpointsService,
     private rippleService: RippleService,
     private manageAccountService: ManageAccountService,
+    private authService: AuthenticationService,
   ) {
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
@@ -70,6 +72,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         return themeName.startsWith('material');
       }));
     this.roles = manageAccountService.getRoles();
+    this.user = this.authService.getUser();
   }
 
   ngOnInit() {

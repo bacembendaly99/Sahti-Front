@@ -21,10 +21,14 @@ export class PagesComponent {
   technicianView: boolean = false;
 
   menu = [];
-
+  user = localStorage.getItem('user');
+  roleParsed = JSON.parse(this.user);
+  id = this.roleParsed.id;
+  role = this.roleParsed.role;
   constructor(
     private manageAccountService: ManageAccountService,
   ) {
+console.log(this.role);
     this.menu = [
       {
         title: 'Espace Docteur',
@@ -34,7 +38,7 @@ export class PagesComponent {
       {
         title: 'Home',
         icon: 'home-outline',
-        link: '/pages/home-doctor',
+        link: ['/pages/home-doctor/', this.id],
         home: true,
         hidden: this.doctorView,
       },
@@ -46,38 +50,25 @@ export class PagesComponent {
         hidden: this.doctorView,
       },
       {
-        title: 'Voir historique',
-        icon: 'list-outline',
-        link: '/pages/historique-docteur',
-        home: true,
-        hidden: this.doctorView,
-      },
-      {
         title: 'Espace Patient',
         group: true,
       },
       {
         title: 'Home',
         icon: 'home-outline',
-        link: '/pages/home-patient',
+        link: ['/pages/home-patient', this.id],
         home: true,
       },
       {
         title: 'Dossier médical',
         icon: 'folder-add-outline',
-        link: '/pages/dossier-medical',
+        link: ['/pages/dossier-medical', this.id],
         home: true,
       },
       {
         title: 'Prescriptions',
         icon: 'list-outline',
-        link: '/pages/prescriptions',
-        home: true,
-      },
-      {
-        title: 'Voir historique',
-        icon: 'list-outline',
-        link: '/pages/historique-patient',
+        link: ['/pages/prescriptions', this.id],
         home: true,
       },
       {
@@ -88,12 +79,6 @@ export class PagesComponent {
         title: 'Valider Prescription',
         icon: 'list-outline',
         link: '/pages/valider-prescription',
-        home: true,
-      },
-      {
-        title: 'Voir historique',
-        icon: 'list-outline',
-        link: '/pages/historique-pharmacien',
         home: true,
       },
       {
@@ -363,6 +348,5 @@ export class PagesComponent {
       },
     ];
   }
-
   // menu = MENU_ITEMS;
 }
