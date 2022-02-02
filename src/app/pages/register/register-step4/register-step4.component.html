@@ -1,17 +1,3 @@
-<!--<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
-  <p class="alert-title"><b>Oh snap!</b></p>
-  <ul class="alert-message-list">
-    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
-  </ul>
-</nb-alert>
-
-<nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
-  <p class="alert-title"><b>Hooray!</b></p>
-  <ul class="alert-message-list">
-    <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
-  </ul>
-</nb-alert>-->
-
 <form [formGroup]="registerForm4" (ngSubmit)="onSubmit()" aria-labelledby="title">
 
   <div class="form-row">
@@ -29,7 +15,7 @@
       </div>
     </div>
 
-    <div class="form-group  col-md-5 sahti-4th-step-feild">
+    <div class="form-group  col-md-5 sahti-4th-step-field">
       <div class="form-control-group" *ngIf="ShowDoctor">
         <label class="label" for="DoctorNumber">DoctorNumber:</label>
         <input
@@ -37,10 +23,12 @@
           nbInput
           id="DoctorNumber"
           placeholder="DoctorNumber">
-        <ng-container
-          *ngIf="registerForm4.controls.doctorNumber.invalid && registerForm4.controls.doctorNumber.touched">
-          <p class="error-message" *ngIf="registerForm4.controls.doctorNumber.errors?.required">
-            doctorNumber is required!
+        <ng-container *ngIf="registerForm4.controls.doctorNumber.touched">
+          <p class="error-message" *ngIf="registerForm4.hasError('doctorNumberNaN')">
+            {{registerForm4.errors['doctorNumberNaN']}}
+          </p>
+          <p class="error-message" *ngIf="registerForm4.hasError('doctorNumberNull')">
+            {{registerForm4.errors['doctorNumberNull']}}
           </p>
         </ng-container>
 
@@ -53,9 +41,9 @@
             formControlName="grade"
             id="grade"
             placeholder="Grade">
-          <ng-container *ngIf="registerForm4.controls.grade.invalid && registerForm4.controls.grade.touched">
-            <p class="error-message" *ngIf="registerForm4.controls.grade.errors?.required">
-              Doctor number is required!
+          <ng-container *ngIf="registerForm4.controls.grade.touched">
+            <p class="error-message" *ngIf="registerForm4.hasError('gradeNull')">
+              {{registerForm4.errors['gradeNull']}}
             </p>
           </ng-container>
 
@@ -70,9 +58,9 @@
             formControlName="speciality"
             id="speciality"
             placeholder="Speciality">
-          <ng-container *ngIf="registerForm4.controls.speciality.invalid && registerForm4.controls.speciality.touched">
-            <p class="error-message" *ngIf="registerForm4.controls.speciality.errors?.required">
-              Doctor speciality is required!
+          <ng-container *ngIf="registerForm4.controls.speciality.touched">
+            <p class="error-message" *ngIf="registerForm4.hasError('specialityNull')">
+              {{registerForm4.errors['specialityNull']}}
             </p>
           </ng-container>
 
@@ -87,6 +75,11 @@
             formControlName="serviceHospital"
             id="serviceHospital"
             placeholder="ServiceHospital">
+          <ng-container *ngIf="registerForm4.controls.serviceHospital.touched">
+            <p class="error-message" *ngIf="registerForm4.hasError('serviceHospitalNull')">
+              {{registerForm4.errors['serviceHospitalNull']}}
+            </p>
+          </ng-container>
 
         </div>
 
@@ -99,7 +92,11 @@
           formControlName="officeLocalisation"
           id="officeLocalisation"
           placeholder="OfficeLocalisation">
-
+        <ng-container *ngIf="registerForm4.controls.officeLocalisation.touched">
+          <p class="error-message" *ngIf="registerForm4.hasError('officeLocalisationNull')">
+            {{registerForm4.errors['officeLocalisationNull']}}
+          </p>
+        </ng-container>
 
       </div>
       <div class="form-control-group" *ngIf="ShowPharmacian">
@@ -110,9 +107,9 @@
           formControlName="pharmacyLocalisation"
           id="pharmacyLocalisation"
           placeholder="Pharmacy Localisation">
-        <ng-container *ngIf="registerForm4.controls.pharmacyLocalisation.invalid && registerForm4.controls.pharmacyLocalisation.touched">
-          <p class="error-message" *ngIf="registerForm4.controls.pharmacyLocalisation.errors?.required">
-            Pharmacy Localisation is required!
+        <ng-container *ngIf="registerForm4.controls.pharmacyLocalisation.touched">
+          <p class="error-message" *ngIf="registerForm4.hasError('pharmacyLocalisationNull')">
+            {{registerForm4.errors['pharmacyLocalisationNull']}}
           </p>
         </ng-container>
 
@@ -125,7 +122,11 @@
           formControlName="officeType"
           id="officeType"
           placeholder="Office Type">
-
+        <ng-container *ngIf="registerForm4.controls.officeType.touched">
+          <p class="error-message" *ngIf="registerForm4.hasError('officeTypeNull')">
+            {{registerForm4.errors['officeTypeNull']}}
+          </p>
+        </ng-container>
 
       </div>
       <div class="form-control-group" *ngIf="ShowTechnician">
@@ -136,6 +137,11 @@
           formControlName="workField"
           id="workField"
           placeholder="Work Field">
+        <ng-container *ngIf="registerForm4.controls.workField.touched">
+          <p class="error-message" *ngIf="registerForm4.hasError('workFieldNull')">
+            {{registerForm4.errors['workFieldNull']}}
+          </p>
+        </ng-container>
       </div>
     </div>
 

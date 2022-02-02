@@ -43,8 +43,9 @@ export class RegisterStep3Component implements OnInit {
     this.registerForm3 = this.formBuilder.group({
       cnamId: [null, [
         Validators.required,
-        // Validators.minLength(8),
-        // Validators.maxLength(8),
+        Validators.minLength(8),
+        Validators.maxLength(8),
+        Validators.pattern('[0-9]*'),
       ]],
       civilStatus: [null, [
         Validators.required,

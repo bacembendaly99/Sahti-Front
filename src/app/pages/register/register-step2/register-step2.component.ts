@@ -25,11 +25,13 @@ export class RegisterStep2Component implements OnInit {
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(8),
+        Validators.pattern('[0-9]*'),
       ]],
       phoneNumber: [null, [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(8),
+        Validators.pattern('[0-9]*'),
       ]],
       birthday: [null, [
         Validators.required,

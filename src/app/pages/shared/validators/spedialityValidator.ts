@@ -1,7 +1,7 @@
 import {AbstractControl, ValidationErrors} from '@angular/forms';
 
 export class SpecialityValidator {
-  static verifySpecialityFeilds(control: AbstractControl): ValidationErrors {
+  static verifySpecialityFields(control: AbstractControl): ValidationErrors {
     const doctorNumber = control.get('doctorNumber').value;
     const grade = control.get('grade').value;
     const speciality = control.get('speciality').value;
@@ -14,7 +14,7 @@ export class SpecialityValidator {
     let errors: {};
     if (control.get('specialityType').value === 'doctor') {
       errors = {};
-      if (isNaN(doctorNumber)) errors['doctorNumberNaN'] = 'doctor number must be a number!';
+      if (isNaN(doctorNumber)) errors['doctorNumberNaN'] = 'this must be a number!';
       if (doctorNumber == null || doctorNumber === '') {
         errors['doctorNumberNull'] = 'doctor number is required!';
       }
@@ -37,9 +37,9 @@ export class SpecialityValidator {
       if (officeLocalisation == null || officeLocalisation === '')
         errors['officeLocalisationNull'] = 'office localisation is required!';
       if (officeType == null || officeType === '')
-        errors['officeType'] = 'Office type is required!';
+        errors['officeTypeNull'] = 'Office type is required!';
       if (workField == null || workField === '')
-        errors['wordkField'] = 'Work field is required!';
+        errors['workFieldNull'] = 'Work field is required!';
       if (errors !== {}) return errors;
       return null;
     }
