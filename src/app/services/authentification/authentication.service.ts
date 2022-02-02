@@ -51,6 +51,9 @@ export class AuthenticationService {
   confirmEmail(token: string) {
     return this.http.post<any>(this.URL + '/confirm', {'token': token});
   }
+  getUser() {
+    return JSON.parse(localStorage.getItem('user'));
+  }
 }
 
 // TODO: error handling view

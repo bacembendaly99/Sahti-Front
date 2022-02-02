@@ -8,7 +8,7 @@ describe('HistoriqueDocteurComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HistoriqueDocteurComponent ]
+      declarations: [ HistoriqueDocteurComponent ],
     })
     .compileComponents();
   });

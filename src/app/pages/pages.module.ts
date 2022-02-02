@@ -29,12 +29,12 @@ import { DossierMedicalComponent } from './dossier-medical/dossier-medical.compo
 import { PrescriptionsComponent } from './prescriptions/prescriptions.component';
 import { ValiderPrescriptionComponent } from './valider-prescription/valider-prescription.component';
 import { AjouterVisiteTechnicienComponent } from './ajouter-visite-technicien/ajouter-visite-technicien.component';
-import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { AjouterVisiteStep2Component } from './ajouter-visite-step2/ajouter-visite-step2.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatChipsModule} from "@angular/material/chips";
-import {MatIconModule} from "@angular/material/icon";
-import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 

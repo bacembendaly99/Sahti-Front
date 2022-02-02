@@ -19,12 +19,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Voir historique',
-    icon: 'list-outline',
-    link: '/pages/historique-docteur',
-    home: true,
-  },
-  {
     title: 'Espace Patient',
     group: true,
   },
@@ -44,12 +38,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Prescriptions',
     icon: 'list-outline',
     link: '/pages/prescriptions',
-    home: true,
-  },
-  {
-    title: 'Voir historique',
-    icon: 'list-outline',
-    link: '/pages/historique-patient',
     home: true,
   },
   {

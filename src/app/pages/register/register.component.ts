@@ -39,7 +39,7 @@ export class NgxRegisterComponent {
       this.authService.register(this.user).subscribe(
         data => {},
         error => {
-          // console.log('error : ', error);
+          console.log('error : ', error);
           if (error.status === 0 || (error.status >= 400 && error.status < 500))
             this.errors['internalError'] = error;
           if (error.status === 500)
