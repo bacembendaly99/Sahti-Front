@@ -1,30 +1,145 @@
-<nb-card>
+<nb-card fullWidth>
   <nb-card-header>My Profile</nb-card-header>
-  <nb-card-body><div class="row">
-    <div class="col-md-6">
-      <h6>Doctor :</h6>
-      <button nbButton status="primary">{{selectedDoctor?.firstName}}  {{selectedDoctor.lastName}}</button>
-      <h6 style="margin-top:5%">Speciality :</h6>
-      <button nbButton status="danger">{{selectedDoctor?.speciality}}</button>
-      <h6 style="margin-top:5%">Number :</h6>
-      <button nbButton status="warning">{{selectedDoctor?.doctorNumber}}</button>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputFirstName" class="label">First Name</label>
+          <input type="text" value="{{selectedDoctor?.firstName}}" nbInput fullWidth id="inputFirstName"
+                 placeholder="First Name">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputLastName" class="label">Last Name</label>
+          <input type="text" value="{{selectedDoctor?.lastName}}" nbInput fullWidth id="inputLastName"
+                 placeholder="Last Name">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputGender" class="label">Gender</label>
+          <input type="text" value="{{selectedDoctor.gender == 0 ? 'Male' : 'Female'}}"
+                 nbInput fullWidth id="inputGender" placeholder="Gender">
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h6>CnamID :</h6>
-      <button nbButton status="success">{{selectedDoctor?.cnamId}}</button>
-      <h6 style="margin-top:5%">Grade :</h6>
-      <button nbButton status="info">{{selectedDoctor?.grade}}</button>
-      <h6 style="margin-top:5%">Number :</h6>
-      <button nbButton status="danger">{{selectedDoctor?.doctorNumber}}</button>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <label for="inputEmail" class="label">Email</label>
+          <input type="email" value="{{selectedDoctor?.email}}" nbInput fullWidth id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputPhoneNumber" class="label">Phone Number</label>
+          <input type="text" value="{{selectedDoctor?.phoneNumber}}" nbInput fullWidth id="inputPhoneNumber"
+                 placeholder="Phone Number">
+        </div>
+      </div>
     </div>
-    <!--<div class="col-xxl-5">
-      <h6>Office Local :</h6>
-      <button nbButton status="success">{{selectedDoctor?.cnamId}}</button>
-      <h6 style="margin-top:5%">Grade :</h6>
-      <button nbButton status="info">{{selectedDoctor?.grade}}</button>
-      <h6 style="margin-top:5%">Number :</h6>
-      <button nbButton status="danger">{{selectedDoctor?.doctorNumber}}</button>
-    </div>-->
-  </div></nb-card-body>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="inputBirthday" class="label" style="margin-top: 32px;margin-left: 32px;">Birthday</label>
+          </div>
+          <div class="col-sm-6">
+            <nb-icon style="margin: 25%" icon="birthday-cake" pack="fa"></nb-icon>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group" style="margin-top: 27px">
 
+          <input type="text"
+                 nbInput
+                 fullWidth
+                 value="{{selectedDoctor?.birthday}}"
+                 id="inputBirthday"
+                 placeholder="Birthday"
+                 [nbDatepicker]="datepicker">
+          <nb-datepicker #datepicker></nb-datepicker>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputSocialStatus" class="label">Social Status</label>
+          <input type="text" value="{{selectedDoctor?.socialStatus}}" nbInput fullWidth id="inputSocialStatus"
+                 placeholder="Social Status">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputCIN" class="label">CIN</label>
+          <input type="text" value="{{selectedDoctor?.cin}}" nbInput fullWidth id="inputCIN"
+                 placeholder="CIN">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputCnamId" class="label">Cnam Id</label>
+          <input type="text" value="{{selectedDoctor?.cnamId}}" nbInput fullWidth id="inputCnamId"
+                 placeholder="Cnam Id">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputCivilStatus" class="label">Civil Status</label>
+          <input type="text" value="{{selectedDoctor?.civilStatus}}" nbInput fullWidth id="inputCivilStatus"
+                 placeholder="Civil Status">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p id="doctor_space">Doctor Space</p>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputDoctorNumber" class="label">Doctor Number</label>
+          <input type="text" value="{{selectedDoctor?.doctorNumber}}" nbInput fullWidth id="inputDoctorNumber"
+                 placeholder="Doctor Number">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputSpeciality" class="label">Speciality</label>
+          <input type="text" value="{{selectedDoctor?.speciality}}" nbInput fullWidth id="inputSpeciality"
+                 placeholder="Speciality">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputGrade" class="label">Grade</label>
+          <input type="text" value="{{selectedDoctor?.grade}}" nbInput fullWidth id="inputGrade"
+                 placeholder="Grade">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputServiceHospital" class="label">Service Hospital</label>
+          <input type="text" value="{{selectedDoctor?.serviceHospital}}" nbInput fullWidth id="inputServiceHospital"
+                 placeholder="Service Hospital">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputOfficeLocalisation" class="label">Office Localisation</label>
+          <input type="text" value="{{selectedDoctor?.serviceHospital}}" nbInput fullWidth id="inputOfficeLocalisation"
+                 placeholder="Service Hospital">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <button style="float: right" type="submit" nbButton matRipple status="success">Submit
+      <nb-icon style="margin-top: 5px" icon="arrow-right" pack="fa"></nb-icon>
+    </button>
+  </nb-card-body>
 </nb-card>
