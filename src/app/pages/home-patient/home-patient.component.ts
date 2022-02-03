@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../services/patient.service';
 import {Patient} from '../../shared/patient.interface';
+import {NbIconLibraries} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-home-patient',
@@ -11,11 +12,17 @@ import {Patient} from '../../shared/patient.interface';
 export class HomePatientComponent implements OnInit {
   selectedPatient: Patient;
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute) { }
+  constructor(
+    private patientService: PatientService,
+    private route: ActivatedRoute,
+    iconsLibrary: NbIconLibraries) {
+    iconsLibrary.registerFontPack('fa', {packClass: 'fa', iconClassPrefix: 'fa'});
+  }
 
   ngOnInit(): void {
     this.getPatient(this.route.snapshot.paramMap.get('id'));
   }
+
   getPatient(id: any) {
     this.patientService.getPatient(id).subscribe(
       data => {
@@ -24,5 +31,9 @@ export class HomePatientComponent implements OnInit {
       error => {
         console.log(error);
       });
+  }
+
+  onSubmit() {
+
   }
 }
