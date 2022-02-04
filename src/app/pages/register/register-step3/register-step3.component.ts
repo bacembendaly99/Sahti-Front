@@ -27,9 +27,6 @@ export class RegisterStep3Component implements OnInit {
       name: 'dead',
     },
   ];
-  socialStatusItems = [
-    'working',
-  ];
   @Output() sendUserData = new EventEmitter();
 
   constructor(

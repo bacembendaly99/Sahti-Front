@@ -1,22 +1,468 @@
 <h1 id="title" class="title">Register</h1>
 
-<carousel cellsToShow="1"  height="550" arrowsOutside="true" arrowsTheme="dark">
+<!--<carousel cellsToShow="1"  height="550" arrowsOutside="true" arrowsTheme="dark">-->
 
-  <div class="carousel-cell" >
-    <ngx-register-step1 (sendUserData)="processUserData($event)"></ngx-register-step1>
-  </div>
-  <div class="carousel-cell">
-<ngx-register-step2 (sendUserData)="processUserData($event)"></ngx-register-step2>
-  </div>
-  <div class="carousel-cell">
-    <ngx-register-step3 (sendUserData)="processUserData($event)"></ngx-register-step3>
-  </div>
-  <div class="carousel-cell">
-    <ngx-register-step4 (sendUserData)="processRoleData($event)" (registerUser)="register($event)"></ngx-register-step4>
-  </div>
+<!--  <div class="carousel-cell" >-->
+<!--    <ngx-register-step1 (sendUserData)="processUserData($event)"></ngx-register-step1>-->
+<!--  </div>-->
+<!--  <div class="carousel-cell">-->
+<!--<ngx-register-step2 (sendUserData)="processUserData($event)"></ngx-register-step2>-->
+<!--  </div>-->
+<!--  <div class="carousel-cell">-->
+<!--    <ngx-register-step3 (sendUserData)="processUserData($event)"></ngx-register-step3>-->
+<!--  </div>-->
+<!--  <div class="carousel-cell">-->
+<!--    <ngx-register-step4 (sendUserData)="processRoleData($event)" (registerUser)="register($event)"></ngx-register-step4>-->
+<!--  </div>-->
 
 
-</carousel>
+<!--</carousel>-->
+
+<nb-stepper #stepper>
+  <nb-step [stepControl]="firstForm" label="First step">
+    <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
+      <div class="form-row">
+        <div class="form-control-group col-md-6">
+          <label class="label" for="input-firstName">First Name:</label>
+          <input nbInput
+                 formControlName="firstName"
+                 id="input-firstName"
+                 name="firstName"
+                 placeholder="First name"
+                 autofocus
+                 fullWidth
+                 [attr.aria-invalid]="firstForm.controls.firstName.invalid && firstForm.controls.firstName.touched ? true : null">
+          <ng-container *ngIf="firstForm.controls.firstName.invalid && firstForm.controls.firstName.touched">
+            <p class="error-message" *ngIf="firstForm.controls.firstName.errors?.required">
+              First name is required!
+            </p>
+          </ng-container>
+        </div>
+        <div class="form-control-group col-md-6">
+          <label class="label" for="input-lastName">Last Name:</label>
+          <input nbInput
+                 formControlName="lastName"
+                 id="input-lastName"
+                 name="lastName"
+                 placeholder="Last name"
+                 autofocus
+                 fullWidth
+                 [attr.aria-invalid]="firstForm.controls.lastName.invalid && firstForm.controls.lastName.touched ? true : null">
+          <ng-container *ngIf="firstForm.controls.lastName.invalid && firstForm.controls.lastName.touched">
+            <p class="error-message" *ngIf="firstForm.controls.lastName.errors?.required">
+              Last name is required!
+            </p>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="form-control-group">
+        <label class="label" for="input-email">Email address:</label>
+        <input nbInput
+               formControlName="email"
+               id="input-email"
+               name="email"
+               pattern=".+@.+..+"
+               placeholder="Email address"
+               fullWidth
+               [status]="firstForm.controls.email.dirty ? (firstForm.controls.email.invalid  ? 'danger' : 'success') : ''"
+               [attr.aria-invalid]="firstForm.controls.email.invalid && firstForm.controls.email.touched ? true : null">
+        <ng-container *ngIf="firstForm.controls.email.invalid && firstForm.controls.email.touched">
+          <p class="error-message" *ngIf="firstForm.controls.email.errors?.required">
+            Email is required!
+          </p>
+          <p class="error-message" *ngIf="firstForm.controls.email.errors?.pattern">
+            Email should be the real one!
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="form-control-group">
+        <label class="label" for="input-password">Password:</label>
+        <input nbInput
+               formControlName="password"
+               type="password"
+               id="input-password"
+               name="password"
+               placeholder="Password"
+               fullWidth
+               [attr.aria-invalid]="firstForm.controls.password.invalid && firstForm.controls.password.touched ? true : null">
+        <ng-container *ngIf="firstForm.controls.password.invalid && firstForm.controls.password.touched">
+          <p class="error-message" *ngIf="firstForm.controls.password.errors?.required">
+            Password is required!
+          </p>
+          <p class="error-message" *ngIf="firstForm.controls.password.errors?.minlength">
+            Password should contains at least 6 characters
+            characters
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="form-control-group">
+        <label class="label" for="input-re-password">Repeat password:</label>
+        <input nbInput
+               formControlName="repeatPassword"
+               type="password"
+               id="input-re-password"
+               name="rePass"
+               placeholder="Confirm Password"
+               fullWidth
+               [attr.aria-invalid]="firstForm.controls.repeatPassword.invalid && firstForm.controls.repeatPassword.touched ? true : null">
+        <ng-container *ngIf="firstForm.controls.repeatPassword.invalid && firstForm.controls.repeatPassword.touched">
+          <p class="error-message" *ngIf="firstForm.controls.repeatPassword.errors?.required">
+            Password confirmation is required!
+          </p>
+          <p class="error-message" *ngIf="firstForm.hasError('passwordsNotMatching')">
+            Password does not match the confirm password.
+          </p>
+        </ng-container>
+      </div>
+      <button nbButton
+              nbStepperNext
+              fullWidth
+              status="success"
+              (click)="onFirstSubmit()"
+              [disabled]="!firstForm.valid"
+              [class.btn-pulse]="true">
+        NEXT
+      </button>
+    </form>
+    <section class="another-action" aria-label="Sign in">
+      Already have an account? <a class="text-link" routerLink="../login">Log in</a>
+    </section>
+  </nb-step>
+  <nb-step [stepControl]="secondForm" label="Second step">
+    <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" aria-labelledby="title">
+
+      <div class="form-control-group">
+        <label class="label" for="CIN">CIN:</label>
+        <input nbInput
+               formControlName="cin"
+               id="CIN"
+               name="cin"
+               placeholder="CIN"
+               autofocus
+               fullWidth
+               [attr.aria-invalid]="secondForm.controls.cin.invalid && secondForm.controls.cin.touched ? true : null">
+        <ng-container *ngIf="secondForm.controls.cin.invalid && secondForm.controls.cin.touched">
+          <p class="error-message" *ngIf="secondForm.controls.cin.errors?.required">
+            CIN is required!
+          </p>
+          <p class="error-message" *ngIf="secondForm.controls.cin.errors?.pattern">
+            CIN should be a number!
+          </p>
+          <p class="error-message"
+             *ngIf="secondForm.controls.cin.errors?.['minlength'] || secondForm.controls.cin.errors?.['maxlength']">
+            CIN should be 8 digits long!
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="form-control-group">
+        <label class="label" for="phoneNumber">Phone Number:</label>
+        <input nbInput
+               formControlName="phoneNumber"
+               id="phoneNumber"
+               name="phoneNumber"
+               placeholder="Phone Number"
+               autofocus
+               fullWidth
+               [attr.aria-invalid]="secondForm.controls.phoneNumber.invalid && secondForm.controls.phoneNumber.touched ? true : null">
+        <ng-container *ngIf="secondForm.controls.phoneNumber.invalid && secondForm.controls.phoneNumber.touched">
+          <p class="error-message" *ngIf="secondForm.controls.phoneNumber.errors?.required">
+            Phone Number is required!
+          </p>
+          <p class="error-message" *ngIf="secondForm.controls.phoneNumber.errors?.pattern">
+            Phone Number should be a number!
+          </p>
+          <p class="error-message"
+             *ngIf="secondForm.controls.phoneNumber.errors?.['minlength'] || secondForm.controls.phoneNumber.errors?.['maxlength']">
+            Phone Number should be 8 digits long!
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="form-control-group">
+        <label class="label" for="birth-day">Date of birth:</label>
+        <input
+          nbInput
+          formControlName="birthday"
+          fullWidth
+          id="birth-day"
+          placeholder="Date of birth"
+          [nbDatepicker]="datepicker">
+        <nb-datepicker #datepicker></nb-datepicker>
+        <ng-container *ngIf="secondForm.controls.birthday.invalid && secondForm.controls.birthday.touched">
+          <p class="error-message" *ngIf="secondForm.controls.birthday.errors?.required">
+            Birthday is required!
+          </p>
+        </ng-container>
+      </div>
+      <div class="form-control-group">
+        <label class="label" for="gender">Gender:</label>
+        <nb-radio-group formControlName="gender" name="gender" id="gender">
+
+          <nb-radio [value]="0">Masculine</nb-radio>
+          <nb-radio [value]="1">Feminine</nb-radio>
+
+        </nb-radio-group>
+      </div>
+      <button
+        class="previous-button"
+        nbButton
+        matRipple
+        nbStepperPrevious>
+        PREVIOUS
+      </button>
+      <button
+        class="next-button"
+        nbButton
+        nbStepperNext
+        status="success"
+        (click)="onSecondSubmit()"
+        [disabled]="!secondForm.valid"
+        [class.btn-pulse]="true">
+        NEXT
+      </button>
+    </form>
+  </nb-step>
+  <nb-step [stepControl]="thirdForm" label="Third step">
+    <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" aria-labelledby="title">
+      <div class="form-control-group">
+        <label class="label" for="CnamId">CnamId:</label>
+        <input nbInput
+               formControlName="cnamId"
+               id="CnamId"
+               name="cnamId"
+               placeholder="CnamId"
+               autofocus
+               fullWidth
+               [attr.aria-invalid]="thirdForm.controls.cnamId.invalid && thirdForm.controls.cnamId.touched ? true : null">
+        <ng-container *ngIf="thirdForm.controls.cnamId.invalid && thirdForm.controls.cnamId.touched">
+          <p class="error-message" *ngIf="thirdForm.controls.cnamId.errors?.required">
+            Cnam id is required!
+          </p>
+          <p class="error-message" *ngIf="thirdForm.controls.cnamId.errors?.pattern">
+            Cnam id should be a number!
+          </p>
+          <p class="error-message"
+             *ngIf="thirdForm.controls.cnamId.errors?.['minlength'] || thirdForm.controls.cnamId.errors?.['maxlength']">
+            Cnam id should be 8 digits long!
+          </p>
+        </ng-container>
+      </div>
+      <div class="form-control-group">
+        <label class="label" for="CivilStatus">CivilStatus:</label>
+        <nb-select fullWidth id="CivilStatus" formControlName="civilStatus" placeholder="Select Civil Status">
+          <nb-option *ngFor="let civil of civilStatusItems" value="{{civil.value}}">{{civil.name}}</nb-option>
+        </nb-select>
+      </div>
+      <div class="form-control-group">
+        <label class="label" for="SocialStatus">SocialStatus:</label>
+        <input nbInput
+               formControlName="socialStatus"
+               id="SocialStatus"
+               name="socialStatus"
+               placeholder="Ex: working, student..."
+               autofocus
+               fullWidth
+               [attr.aria-invalid]="thirdForm.controls.socialStatus.invalid && thirdForm.controls.socialStatus.touched ? true : null">
+        <ng-container *ngIf="thirdForm.controls.socialStatus.invalid && thirdForm.controls.socialStatus.touched">
+          <p class="error-message" *ngIf="thirdForm.controls.socialStatus.errors?.required">
+            Social status id is required!
+          </p>
+        </ng-container>
+      </div>
+      <button
+        class="previous-button"
+        nbButton
+        matRipple
+        nbStepperPrevious>
+        PREVIOUS
+      </button>
+      <button
+        class="next-button"
+        nbButton
+        nbStepperNext
+        status="success"
+        (click)="onThirdSubmit()"
+        [disabled]="!thirdForm.valid"
+        [class.btn-pulse]="true">
+        NEXT
+      </button>
+    </form>
+  </nb-step>
+  <nb-step [stepControl]="forthForm" label="Forth step">
+    <form [formGroup]="forthForm" (ngSubmit)="onForthSubmit()" aria-labelledby="title">
+
+      <div class="form-row">
+        <div class="form-group  col-md-4">
+          <div class="form-control-group" id="fcg1">
+            <label class="label" for="role" id="label">Are you ?</label>
+            <nb-radio-group formControlName="specialityType" id="role" class="rg">
+
+              <nb-radio [value]="'patient'" (click)="ChangeOption(1)">A normal patient</nb-radio>
+              <nb-radio [value]="'doctor'" (click)="ChangeOption(2)">A doctor</nb-radio>
+              <nb-radio [value]="'pharmacist'" (click)="ChangeOption(3)">A pharmacian</nb-radio>
+              <nb-radio [value]="'technician'" (click)="ChangeOption(4)">A technician</nb-radio>
+
+            </nb-radio-group>
+          </div>
+        </div>
+
+        <div class="form-group  col-md-8 sahti-4th-step-field">
+          <div class="form-control-group" *ngIf="ShowDoctor">
+            <label class="label" for="DoctorNumber">DoctorNumber:</label>
+            <input
+              formControlName="doctorNumber"
+              nbInput
+              id="DoctorNumber"
+              placeholder="DoctorNumber">
+            <ng-container *ngIf="forthForm.controls.doctorNumber.touched">
+              <p class="error-message" *ngIf="forthForm.hasError('doctorNumberNaN')">
+                {{forthForm.errors['doctorNumberNaN']}}
+              </p>
+              <p class="error-message" *ngIf="forthForm.hasError('doctorNumberNull')">
+                {{forthForm.errors['doctorNumberNull']}}
+              </p>
+            </ng-container>
+
+          </div>
+          <div class="form-control-group" *ngIf="ShowDoctor">
+            <div class="form-control-group" *ngIf="ShowDoctor">
+              <label class="label" for="grade">Grade:</label>
+              <input
+                nbInput
+                formControlName="grade"
+                id="grade"
+                placeholder="Grade">
+              <ng-container *ngIf="forthForm.controls.grade.touched">
+                <p class="error-message" *ngIf="forthForm.hasError('gradeNull')">
+                  {{forthForm.errors['gradeNull']}}
+                </p>
+              </ng-container>
+
+            </div>
+
+          </div>
+          <div class="form-control-group" *ngIf="ShowDoctor">
+            <div class="form-control-group" *ngIf="ShowDoctor">
+              <label class="label" for="speciality">Speciality:</label>
+              <input
+                nbInput
+                formControlName="speciality"
+                id="speciality"
+                placeholder="Speciality">
+              <ng-container *ngIf="forthForm.controls.speciality.touched">
+                <p class="error-message" *ngIf="forthForm.hasError('specialityNull')">
+                  {{forthForm.errors['specialityNull']}}
+                </p>
+              </ng-container>
+
+            </div>
+
+          </div>
+          <div class="form-control-group" *ngIf="ShowDoctor">
+            <div class="form-control-group" *ngIf="ShowDoctor">
+              <label class="label" for="serviceHospital">ServiceHospital:</label>
+              <input
+                nbInput
+                formControlName="serviceHospital"
+                id="serviceHospital"
+                placeholder="ServiceHospital">
+              <ng-container *ngIf="forthForm.controls.serviceHospital.touched">
+                <p class="error-message" *ngIf="forthForm.hasError('serviceHospitalNull')">
+                  {{forthForm.errors['serviceHospitalNull']}}
+                </p>
+              </ng-container>
+
+            </div>
+
+          </div>
+          <div class="form-control-group" *ngIf="ShowDoctor||ShowTechnician">
+
+            <label class="label" for="officeLocalisation">OfficeLocalisation:</label>
+            <input
+              nbInput
+              formControlName="officeLocalisation"
+              id="officeLocalisation"
+              placeholder="OfficeLocalisation">
+            <ng-container *ngIf="forthForm.controls.officeLocalisation.touched">
+              <p class="error-message" *ngIf="forthForm.hasError('officeLocalisationNull')">
+                {{forthForm.errors['officeLocalisationNull']}}
+              </p>
+            </ng-container>
+
+          </div>
+          <div class="form-control-group" *ngIf="ShowPharmacian">
+
+            <label class="label" for="pharmacyLocalisation">Pharmacy Localisation:</label>
+            <input
+              nbInput
+              formControlName="pharmacyLocalisation"
+              id="pharmacyLocalisation"
+              placeholder="Pharmacy Localisation">
+            <ng-container *ngIf="forthForm.controls.pharmacyLocalisation.touched">
+              <p class="error-message" *ngIf="forthForm.hasError('pharmacyLocalisationNull')">
+                {{forthForm.errors['pharmacyLocalisationNull']}}
+              </p>
+            </ng-container>
+
+          </div>
+          <div class="form-control-group" *ngIf="ShowTechnician">
+
+            <label class="label" for="officeType">Office Type:</label>
+            <input
+              nbInput
+              formControlName="officeType"
+              id="officeType"
+              placeholder="Office Type">
+            <ng-container *ngIf="forthForm.controls.officeType.touched">
+              <p class="error-message" *ngIf="forthForm.hasError('officeTypeNull')">
+                {{forthForm.errors['officeTypeNull']}}
+              </p>
+            </ng-container>
+
+          </div>
+          <div class="form-control-group" *ngIf="ShowTechnician">
+
+            <label class="label" for="workField">Work Field:</label>
+            <input
+              nbInput
+              formControlName="workField"
+              id="workField"
+              placeholder="Work Field">
+            <ng-container *ngIf="forthForm.controls.workField.touched">
+              <p class="error-message" *ngIf="forthForm.hasError('workFieldNull')">
+                {{forthForm.errors['workFieldNull']}}
+              </p>
+            </ng-container>
+          </div>
+        </div>
+
+
+      </div>
+
+      <button
+        class="previous-button"
+        nbButton
+        matRipple
+        nbStepperPrevious>
+        PREVIOUS
+      </button>
+      <button
+        class="next-button"
+        nbButton
+        nbStepperNext
+        status="success"
+        [disabled]="!forthForm.valid"
+        [class.btn-pulse]="true">
+        CREATE
+      </button>
+    </form>
+  </nb-step>
+
+</nb-stepper>
 
 <nb-alert *ngIf="errors.success" status="success">
   You have been successfully authenticated!
