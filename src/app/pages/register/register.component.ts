@@ -132,7 +132,6 @@ export class NgxRegisterComponent implements OnInit {
       });
   }
 
-
   processUserData(user: any) {
     Object.assign(this.user.patient, user);
     this.errors = {
