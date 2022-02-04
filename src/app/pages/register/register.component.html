@@ -293,7 +293,7 @@
     </form>
   </nb-step>
   <nb-step [stepControl]="forthForm" label="Forth step">
-    <form [formGroup]="forthForm" (ngSubmit)="onForthSubmit()" aria-labelledby="title">
+    <form [formGroup]="forthForm" (ngSubmit)="onForthSubmit(dialog)" aria-labelledby="title">
 
       <div class="form-row">
         <div class="form-group  col-md-4">
@@ -478,3 +478,13 @@
   Server error ! Please come back after a while !
   {{errors.internalError}}
 </nb-alert>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Account Created Successfully</nb-card-header>
+    <nb-card-body>{{ data }}</nb-card-body>
+    <nb-card-footer>
+      <button nbButton matRipple (click)="ref.close()">Close</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

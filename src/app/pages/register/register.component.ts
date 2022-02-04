@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../../services/authentification/authentication.service';
 import {PasswordValidator} from '../shared/validators/passwordValidator';
 import {SpecialityValidator} from '../shared/validators/spedialityValidator';
+import {NbDialogService} from "@nebular/theme";
 
 @Component({
   selector: 'ngx-register',
@@ -50,6 +51,7 @@ export class NgxRegisterComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
+    private dialogService: NbDialogService,
   ) {
   }
 
@@ -148,11 +150,12 @@ export class NgxRegisterComponent implements OnInit {
     // console.log('user', this.user);
   }
 
-  register(message) {
+  register(message, dialog: any) {
     if (message === 'register') {
       console.log('user', this.user);
       this.authService.register(this.user).subscribe(
         data => {
+          this.openDialog(dialog);
         },
         error => {
           console.log('error : ', error);
@@ -189,7 +192,7 @@ export class NgxRegisterComponent implements OnInit {
     this.processUserData(this.thirdForm.value);
   }
 
-  onForthSubmit() {
+  onForthSubmit(dialog: TemplateRef<any>) {
     let speciality;
     let user = {};
     if (this.forthForm.invalid) return;
@@ -221,7 +224,13 @@ export class NgxRegisterComponent implements OnInit {
         });
         break;
     }
-    this.register('register');
+    this.register('register', dialog);
+  }
+
+  openDialog(dialog: TemplateRef<any>) {
+    this.dialogService.open(
+      dialog,
+      { context: 'We have sent you an email to verify your account!' });
   }
 
   get gender() {
