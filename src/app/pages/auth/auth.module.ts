@@ -9,7 +9,7 @@ import {
   NbAlertModule,
   NbButtonModule, NbCardModule,
   NbCheckboxModule, NbDatepickerModule,
-  NbInputModule,
+  NbInputModule, NbRadioModule, NbSelectModule, NbStepperModule,
 } from '@nebular/theme';
 import {NgxLoginComponent} from '../login/login.component';
 import {NgxRegisterComponent} from '../register/register.component';
@@ -17,6 +17,7 @@ import {PagesModule} from '../pages.module';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {ResetPasswordComponent} from '../reset-password/reset-password.component';
 import { ConfirmComponent } from './confirm/confirm.component';
+import {MatRippleModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -36,6 +37,10 @@ import { ConfirmComponent } from './confirm/confirm.component';
     ReactiveFormsModule,
     NbDatepickerModule,
     NbCardModule,
+    NbStepperModule,
+    NbRadioModule,
+    MatRippleModule,
+    NbSelectModule,
   ],
   declarations: [
     NgxLoginComponent,

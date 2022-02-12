@@ -3,6 +3,7 @@ import {DoctorService} from '../../services/doctor.service';
 import {ActivatedRoute} from '@angular/router';
 import {Doctor} from '../../shared/doctor.interface';
 import {ButtonsComponent} from '../forms/buttons/buttons.component';
+import {NbIconLibraries} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-home-doctor',
@@ -13,7 +14,11 @@ export class HomeDoctorComponent implements OnInit {
 selectedDoctor: Doctor;
 
 
-  constructor(private doctorService: DoctorService, private route: ActivatedRoute) {
+  constructor(
+    private doctorService: DoctorService,
+    private route: ActivatedRoute,
+    iconsLibrary: NbIconLibraries) {
+    iconsLibrary.registerFontPack('fa', { packClass: 'fa', iconClassPrefix: 'fa' });
   }
 
   ngOnInit(): void {
@@ -23,6 +28,7 @@ selectedDoctor: Doctor;
     this.doctorService.getDoctor(id).subscribe(
       data => {
         this.selectedDoctor = data;
+        console.log('doctor: ', this.selectedDoctor);
       },
       error => {
         console.log(error);
