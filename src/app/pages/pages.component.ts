@@ -90,7 +90,7 @@ console.log(this.role);
       {
         title: 'Ajouter visite',
         icon: 'activity-outline',
-        link: '/pages/valider-prescription',
+        link: '/pages/ajouter-visite-technicien',
         home: true,
         hidden: this.technicianView,
       },

@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Medicament} from "../shared/medicament.interface";
 
 
 const DoctorUrl = 'http://localhost:4000/doctors';
 const MedicamentsUrl = 'http://localhost:4000/medicaments';
-
-
-
 
 
 
@@ -25,6 +21,7 @@ export class DoctorService {
   getMeds(): Observable<any> {
     return this.http.get(`${MedicamentsUrl}`);
   }
+
 
 
 

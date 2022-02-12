@@ -14,6 +14,7 @@ import {PrescriptionsComponent} from './prescriptions/prescriptions.component';
 import {ValiderPrescriptionComponent} from './valider-prescription/valider-prescription.component';
 import {AjouterVisiteTechnicienComponent} from './ajouter-visite-technicien/ajouter-visite-technicien.component';
 import {AjouterVisiteStep2Component} from './ajouter-visite-step2/ajouter-visite-step2.component';
+import {ValiderPrescriptionStep2Component} from './valider-prescription-step2/valider-prescription-step2.component';
 
 const routes: Routes = [{
   path: '',
@@ -26,6 +27,10 @@ const routes: Routes = [{
     {
       path: 'valider-prescription',
       component: ValiderPrescriptionComponent,
+    },
+    {
+      path: 'valider-prescription/:id',
+      component: ValiderPrescriptionStep2Component,
     },
     {
       path: 'prescriptions/:id',

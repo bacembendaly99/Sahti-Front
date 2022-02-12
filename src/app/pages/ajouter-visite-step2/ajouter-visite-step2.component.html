@@ -7,54 +7,15 @@
       <div>Last Name: {{currentPatient?.lastName}}</div>
       <div>ila5</div>
     <form #ajouterVisite2="ngForm" (ngSubmit)="onSubmit()">
-<!--      <mat-form-field class="example-chip-list" appearance="fill" >-->
-<!--      <mat-label>Medicaments</mat-label>-->
-<!--      <mat-chip-list #chipList aria-label="Fruit selection" >-->
-<!--        <mat-chip style="background-color:lightgray" *ngFor="let medicament of medicaments" (removed)="remove(medicament)">-->
-<!--          {{medicament.name}}-->
-<!--          <mat-icon matChipRemove>cancel</mat-icon>-->
 
-<!--        </mat-chip>-->
-<!--        <input id="medicamentInput" placeholder="Add medicament"-->
-<!--               [matChipInputFor]="chipList"-->
-<!--               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"-->
-<!--               [matChipInputAddOnBlur]="addOnBlur"-->
-<!--               (matChipInputTokenEnd)="add($event)">-->
-<!--      </mat-chip-list>-->
-<!--    </mat-form-field>-->
-      <mat-form-field class="example-chip-list">
-        <mat-chip-list #chipList aria-label="Medicaments selection">
-          <mat-chip
-            *ngFor="let medicament of medicaments"
-            [selectable]="selectable"
-            [removable]="removable"
-            (removed)="remove(medicament)">
-            {{medicament}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-          </mat-chip>
-          <input
-            placeholder="Add Medicamnt..."
-            #fruitInput
-            [formControl]="medicamentCtrl"
-            [matAutocomplete]="auto"
-            [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)">
-        </mat-chip-list>
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let medicament of filteredMeds | async" [value]="medicament">
-            {{medicament}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+
       <div class="form-control-group" >
         <label for="remarks">Remarks :</label>
-        <textarea rows="5" name="remarks" nbInput fullWidth [ngModel]="remarks" shape="round"  placeholder="remarks"  id="remarks"></textarea>
+        <textarea rows="5" name="remarks" nbInput fullWidth [ngModel]="remarks"   placeholder="remarks"  id="remarks"></textarea>
       </div>
       <div class="form-control-group" >
         <label for="additional-info">Additional Infos :</label>
-        <textarea rows="5" nbInput name="additional-info" fullWidth [ngModel]="additionalInfo" shape="round"  placeholder="Additional infos"  id="additional-info"></textarea>
+        <textarea rows="5" nbInput name="additional-info" fullWidth [ngModel]="additionalInfo"   placeholder="Additional infos"  id="additional-info"></textarea>
       </div>
       <div class="form-control-group" >
         <label for="ajouter-disease">Ajouter Chronic Disease :</label>
@@ -71,7 +32,6 @@
         <br>
         <nb-datepicker #datepicker ></nb-datepicker>
       </div>
-      <br>
 
       <br>
       <button nbButton status="primary" [disabled]="!ajouterVisite2.form.valid">Ajouter</button>

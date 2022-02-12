@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import {
-  NbAlertModule,
-  NbButtonModule, NbCardModule,
-  NbCheckboxModule,
-  NbDatepickerModule, NbIconModule,
-  NbInputModule,
-  NbMenuModule, NbRadioModule, NbSelectModule,
+    NbAccordionModule,
+    NbAlertModule,
+    NbButtonModule, NbCardModule,
+    NbCheckboxModule,
+    NbDatepickerModule, NbIconModule,
+    NbInputModule,
+    NbMenuModule, NbRadioModule, NbSelectModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
@@ -35,34 +36,36 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ValiderPrescriptionStep2Component } from './valider-prescription-step2/valider-prescription-step2.component';
 
 
 @NgModule({
-  imports: [
-    PagesRoutingModule,
-    ThemeModule,
-    NbMenuModule,
-    DashboardModule,
-    ECommerceModule,
-    MiscellaneousModule,
-    FormsModule,
-    NbAlertModule,
-    NbInputModule,
-    NbCheckboxModule,
-    NbButtonModule,
-    NbDatepickerModule,
-    NbRadioModule,
-    ReactiveFormsModule,
-    NbCardModule,
-    TablesModule,
-    MatBottomSheetModule,
-    MatFormFieldModule,
-    MatChipsModule,
-    MatIconModule,
-    NbIconModule,
-    MatAutocompleteModule,
-    NbSelectModule,
-  ],
+    imports: [
+        PagesRoutingModule,
+        ThemeModule,
+        NbMenuModule,
+        DashboardModule,
+        ECommerceModule,
+        MiscellaneousModule,
+        FormsModule,
+        NbAlertModule,
+        NbInputModule,
+        NbCheckboxModule,
+        NbButtonModule,
+        NbDatepickerModule,
+        NbRadioModule,
+        ReactiveFormsModule,
+        NbCardModule,
+        TablesModule,
+        MatBottomSheetModule,
+        MatFormFieldModule,
+        MatChipsModule,
+        MatIconModule,
+        NbIconModule,
+        MatAutocompleteModule,
+        NbSelectModule,
+        NbAccordionModule,
+    ],
   declarations: [
     PagesComponent,
     RegisterStep1Component,
@@ -78,6 +81,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
         ValiderPrescriptionComponent,
         AjouterVisiteTechnicienComponent,
         AjouterVisiteStep2Component,
+        ValiderPrescriptionStep2Component,
 
   ],
   exports: [
