@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../../services/authentification/authentication.service';
 import {PasswordValidator} from '../shared/validators/passwordValidator';
 import {SpecialityValidator} from '../shared/validators/spedialityValidator';
-import {NbDialogService} from "@nebular/theme";
+import {NbDialogService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-register',
