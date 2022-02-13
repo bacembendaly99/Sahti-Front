@@ -28,7 +28,13 @@ export class PagesComponent {
   constructor(
     private manageAccountService: ManageAccountService,
   ) {
-console.log(this.role);
+    console.log(this.role);
+
+    this.technicianView = manageAccountService.technicianView;
+    this.doctorView = manageAccountService.doctorView;
+    this.pharmacistView = manageAccountService.pharmacistView;
+    this.patientView = manageAccountService.patientView;
+
     this.menu = [
       {
         title: 'Espace Docteur',
@@ -74,12 +80,14 @@ console.log(this.role);
       {
         title: 'Espace Pharmacien',
         group: true,
+        hidden: this.pharmacistView,
       },
       {
         title: 'Valider Prescription',
         icon: 'list-outline',
         link: '/pages/valider-prescription',
         home: true,
+        hidden: this.pharmacistView,
       },
       {
         title: 'Espace Technicien',
