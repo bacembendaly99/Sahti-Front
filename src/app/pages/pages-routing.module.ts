@@ -7,7 +7,6 @@ import {ECommerceComponent} from './e-commerce/e-commerce.component';
 import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
 import {HomeDoctorComponent} from './home-doctor/home-doctor.component';
 import {AjouterVisiteComponent} from './ajouter-visite/ajouter-visite.component';
-import {HistoriqueDocteurComponent} from './historique-docteur/historique-docteur.component';
 import {HomePatientComponent} from './home-patient/home-patient.component';
 import {DossierMedicalComponent} from './dossier-medical/dossier-medical.component';
 import {PrescriptionsComponent} from './prescriptions/prescriptions.component';
@@ -15,6 +14,7 @@ import {ValiderPrescriptionComponent} from './valider-prescription/valider-presc
 import {AjouterVisiteTechnicienComponent} from './ajouter-visite-technicien/ajouter-visite-technicien.component';
 import {AjouterVisiteStep2Component} from './ajouter-visite-step2/ajouter-visite-step2.component';
 import {ValiderPrescriptionStep2Component} from './valider-prescription-step2/valider-prescription-step2.component';
+import {AjouterVisiteTechnicienStep2Component} from './ajouter-visite-technicien-step2/ajouter-visite-technicien-step2.component';
 
 const routes: Routes = [{
   path: '',
@@ -23,6 +23,10 @@ const routes: Routes = [{
     {
       path: 'ajouter-visite-technicien',
       component: AjouterVisiteTechnicienComponent,
+    },
+    {
+      path: 'ajouter-visite-technicien/:id',
+      component: AjouterVisiteTechnicienStep2Component,
     },
     {
       path: 'valider-prescription',

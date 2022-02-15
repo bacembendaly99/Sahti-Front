@@ -33,6 +33,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ValiderPrescriptionStep2Component} from './valider-prescription-step2/valider-prescription-step2.component';
+import { AjouterVisiteTechnicienStep2Component } from './ajouter-visite-technicien-step2/ajouter-visite-technicien-step2.component';
 
 
 @NgModule({
@@ -74,7 +75,7 @@ import {ValiderPrescriptionStep2Component} from './valider-prescription-step2/va
     AjouterVisiteTechnicienComponent,
     AjouterVisiteStep2Component,
     ValiderPrescriptionStep2Component,
-
+    AjouterVisiteTechnicienStep2Component,
   ],
   exports: [],
 })
