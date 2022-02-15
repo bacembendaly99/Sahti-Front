@@ -26,33 +26,36 @@ import {
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from './pages/forms/forms.module';
+import {DirectivesModuleModule} from './directives/directives-module/directives-module.module';
 
 
 
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        NbSidebarModule.forRoot(),
-        NbMenuModule.forRoot(),
-        NbDatepickerModule.forRoot(),
-        NbDialogModule.forRoot(),
-        NbWindowModule.forRoot(),
-        NbToastrModule.forRoot(),
-        NbChatModule.forRoot({
-            messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
-        }),
-        CoreModule.forRoot(),
-        ThemeModule.forRoot(),
-        NbButtonModule,
-        FormsModule,
-        ReactiveFormsModule,
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbWindowModule.forRoot(),
+    NbToastrModule.forRoot(),
+    NbChatModule.forRoot({
+      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+    }),
+    CoreModule.forRoot(),
+    ThemeModule.forRoot(),
+    NbButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DirectivesModuleModule,
+  ],
   bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule {
 }
