@@ -1,5 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
+import {
+  NbIconLibraries,
+  NbMediaBreakpointsService,
+  NbMenuService,
+  NbSidebarService,
+  NbThemeService
+} from '@nebular/theme';
 
 import {UserData} from '../../../@core/data/users';
 import {LayoutService} from '../../../@core/utils';
@@ -56,6 +62,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userMenu = [{title: 'Profile'}, {title: 'Log out'}];
 
+  evaIcons = [];
+
   public constructor(
     private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
@@ -67,6 +75,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private manageAccountService: ManageAccountService,
     private authService: AuthenticationService,
     private http: Router,
+    iconsLibrary: NbIconLibraries,
   ) {
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
@@ -75,6 +84,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }));
     this.roles = manageAccountService.getRoles();
     this.user = this.authService.getUser();
+    this.evaIcons = Array.from(iconsLibrary.getPack('eva').icons.keys())
+      .filter(icon => icon.indexOf('outline') === -1);
   }
 
   ngOnInit() {
