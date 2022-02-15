@@ -15,7 +15,7 @@
         <div class="row" *ngFor="let med of medication().controls; let i=index" [formGroupName]="i" >
           <div class="col-sm-8">
             <div class="form-group" >
-              <input [nbAutocomplete]="autoControl" formControlName="med" nbInput fullWidth placeholder="mediacation"  id="med">
+              <input [nbAutocomplete]="autoControl" formControlName="med" nbInput fullWidth placeholder="mediacation" (click)="changeMedIndex(i)" id="med">
               <nb-autocomplete #autoControl>
                 <nb-option *ngFor="let option of filteredMedOptions$ | async" [value]="option">
                   {{ option }}

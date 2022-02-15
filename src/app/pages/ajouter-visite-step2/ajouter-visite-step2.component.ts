@@ -17,6 +17,7 @@ export class AjouterVisiteStep2Component implements OnInit {
 
   optionMeds: string[];
   filteredMedOptions$: Observable<string[]>;
+  medIndex: number = 0;
   currentPatientID: number;
   currentPatient: Patient;
   allMeds: Observable<any>;
@@ -49,9 +50,9 @@ export class AjouterVisiteStep2Component implements OnInit {
   }
 
   private filter(value: string): string[] {
-    if (value[0] !== null) {
+    if (value[this.medIndex] !== null) {
       let filterValue = '';
-      if (value[0] !== undefined) filterValue = value[0]['med'].toLowerCase();
+      if (value[this.medIndex] !== undefined) filterValue = value[this.medIndex]['med'].toLowerCase();
       return this.optionMeds.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
     } else return null;
   }
@@ -62,7 +63,7 @@ export class AjouterVisiteStep2Component implements OnInit {
         data => {
           this.allMeds = data;
           this.fillMedsNames();
-          console.log(this.allMeds);
+          console.log('all meds :', this.allMeds);
         },
         error => {
           console.log(error);
@@ -76,6 +77,10 @@ export class AjouterVisiteStep2Component implements OnInit {
         this.optionMeds.push(this.allMeds[med]['name']);
       }
     }
+  }
+
+  changeMedIndex(index: number) {
+    this.medIndex = index;
   }
 
   getPatient(id: any): void {
@@ -110,7 +115,6 @@ export class AjouterVisiteStep2Component implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.currentPatientID);
-
+    console.log('current patient id : ', this.currentPatientID);
   }
 }
