@@ -5,7 +5,7 @@ import {
     NbButtonModule, NbCardModule,
     NbCheckboxModule,
     NbDatepickerModule, NbIconModule,
-    NbInputModule,
+    NbInputModule, NbListModule,
     NbMenuModule, NbRadioModule, NbSelectModule,
 } from '@nebular/theme';
 
@@ -62,6 +62,7 @@ import {ValiderPrescriptionStep2Component} from './valider-prescription-step2/va
         NbSelectModule,
         NbAccordionModule,
         NbAutocompleteModule,
+        NbListModule,
     ],
   declarations: [
     PagesComponent,
