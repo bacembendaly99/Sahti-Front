@@ -6,6 +6,7 @@ import {DoctorService} from '../../services/doctor.service';
 import {Observable, of} from 'rxjs';
 import {FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
+import {MedicalCheckup} from '../../shared/medical-checkup.interface';
 
 
 @Component({
@@ -18,10 +19,22 @@ export class AjouterVisiteStep2Component implements OnInit {
   optionMeds: string[];
   filteredMedOptions$: Observable<string[]>;
   medIndex: number = 0;
+  selectedMeds: string[] = [];
   currentPatientID: number;
   currentPatient: Patient;
   allMeds: Observable<any>;
   visiteForm: FormGroup;
+  medicalCheckup: MedicalCheckup = {
+    medicamentNameList: [''],
+    additionalInformation: '',
+    doctorId: 0,
+    patientId: 0,
+    namesOfChronicDiseases: [
+      '',
+    ],
+    controlDate: '',
+    remarks: '',
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -113,14 +126,24 @@ export class AjouterVisiteStep2Component implements OnInit {
   removeQuantity(i: number) {
     this.medication().removeAt(i);
   }
-  mapMedicamentsToIds()
-{
-  const meds = this.visiteForm.value.meds;
-  for (const med of meds) {
-  }
+transformMeds(): void {
+  this.visiteForm.value.meds.forEach(item => { console.log('item:', item);
+    this.selectedMeds.push(item.med); } );
 }
   onSubmit(): void {
+
     console.log('current patient id : ', this.currentPatientID);
-    console.log(this.visiteForm.value);
+    console.log('selected meds', this.selectedMeds);
+    this.transformMeds();
+    this.medicalCheckup.medicamentNameList = this.selectedMeds;
+    this.medicalCheckup.additionalInformation = this.visiteForm.value.additionalInfo;
+    this.medicalCheckup.doctorId = JSON.parse(localStorage.getItem('user')).id;
+    this.medicalCheckup.patientId = this.currentPatientID;
+    this.medicalCheckup.remarks = this.visiteForm.value.remarks;
+    this.medicalCheckup.namesOfChronicDiseases.push(this.visiteForm.value.chronicDisease);
+    this.medicalCheckup.namesOfChronicDiseases.shift();
+    this.medicalCheckup.controlDate = this.visiteForm.value.dateOfControl;
+console.log('medical checkup: ' , this.medicalCheckup);
+    this.doctorService.ajouterVisite(this.medicalCheckup);
   }
 }

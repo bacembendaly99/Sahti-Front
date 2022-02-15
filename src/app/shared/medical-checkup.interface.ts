@@ -1,13 +1,9 @@
 export interface MedicalCheckup {
-  remarks: string;
-  medicamentsIdList: [
-    number
-  ];
+  medicamentNameList: string[];
   additionalInformation: string;
   doctorId: number;
   patientId: number;
-  namesOfChronicDiseases: [
-    string
-  ];
+  namesOfChronicDiseases: string[];
   controlDate: string;
+  remarks: string;
 }
