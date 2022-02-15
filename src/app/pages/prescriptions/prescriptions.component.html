@@ -1,1 +1,16 @@
-<p>{{prescriptions}}</p>
+<nb-card>
+  <nb-card-header>Prescriptions</nb-card-header>
+  <nb-card-body>
+    <nb-accordion *ngFor="let prescription of prescriptions"><nb-accordion-item>
+      <nb-accordion-item-header >Prescription N°  {{prescription.id}}</nb-accordion-item-header>
+      <nb-accordion-item-body>
+        <div>created at: {{prescription.createdAt}}</div>
+        <div>remarks: {{prescription.remarks}}</div>
+        <div>Medicaments :</div>
+        <div *ngFor="let medicament of prescription.medicaments">{{medicament.name}}</div>
+        <div>Status: {{prescription.status}}</div>
+
+      </nb-accordion-item-body>
+    </nb-accordion-item></nb-accordion>
+  </nb-card-body>
+</nb-card>

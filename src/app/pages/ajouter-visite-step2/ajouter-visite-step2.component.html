@@ -15,7 +15,7 @@
         <div class="row" *ngFor="let med of medication().controls; let i=index" [formGroupName]="i" >
           <div class="col-sm-8">
             <div class="form-group" >
-              <input [nbAutocomplete]="autoControl" formControlName="med" nbInput fullWidth placeholder="mediacation"  id="med">
+              <input [nbAutocomplete]="autoControl" formControlName="med" nbInput fullWidth placeholder="mediacation" (click)="changeMedIndex(i)" id="med">
               <nb-autocomplete #autoControl>
                 <nb-option *ngFor="let option of filteredMedOptions$ | async" [value]="option">
                   {{ option }}
@@ -32,15 +32,15 @@
 
 
       <div class="form-control-group" >
-        <label for="remarks">Remarks :</label>
+        <label class="label" for="remarks">Remarks :</label>
         <textarea rows="5" name="remarks" nbInput fullWidth formControlName="remarks" placeholder="remarks"  id="remarks"></textarea>
       </div>
       <div class="form-control-group" >
-        <label for="additional-info">Additional Infos :</label>
+        <label class="label" for="additional-info">Additional Infos :</label>
         <textarea rows="5" nbInput name="additional-info" fullWidth formControlName="additionalInfo"   placeholder="Additional infos"  id="additional-info"></textarea>
       </div>
       <div class="form-control-group" >
-        <label for="ajouter-disease">Ajouter Chronic Disease :</label>
+        <label class="label" for="ajouter-disease">Ajouter Chronic Disease :</label>
         <input name="chronicDisease" formControlName="chronicDisease" type="text" nbInput fullWidth placeholder="ajouter disease" id="ajouter-disease">
       </div>
       <div class="form-control-group">
