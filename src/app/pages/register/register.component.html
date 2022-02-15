@@ -24,7 +24,7 @@
       <div class="form-row">
         <div class="form-control-group col-md-6">
           <label class="label" for="input-firstName">First Name:</label>
-          <input nbInput
+          <input fullWidth nbInput
                  formControlName="firstName"
                  id="input-firstName"
                  name="firstName"
@@ -40,7 +40,7 @@
         </div>
         <div class="form-control-group col-md-6">
           <label class="label" for="input-lastName">Last Name:</label>
-          <input nbInput
+          <input fullWidth nbInput
                  formControlName="lastName"
                  id="input-lastName"
                  name="lastName"
@@ -58,7 +58,7 @@
 
       <div class="form-control-group">
         <label class="label" for="input-email">Email address:</label>
-        <input nbInput
+        <input fullWidth nbInput
                formControlName="email"
                id="input-email"
                name="email"
@@ -79,7 +79,7 @@
 
       <div class="form-control-group">
         <label class="label" for="input-password">Password:</label>
-        <input nbInput
+        <input fullWidth nbInput
                formControlName="password"
                type="password"
                id="input-password"
@@ -100,7 +100,7 @@
 
       <div class="form-control-group">
         <label class="label" for="input-re-password">Repeat password:</label>
-        <input nbInput
+        <input fullWidth nbInput
                formControlName="repeatPassword"
                type="password"
                id="input-re-password"
@@ -136,7 +136,7 @@
 
       <div class="form-control-group">
         <label class="label" for="CIN">CIN:</label>
-        <input nbInput
+        <input fullWidth nbInput
                formControlName="cin"
                id="CIN"
                name="cin"
@@ -160,7 +160,7 @@
 
       <div class="form-control-group">
         <label class="label" for="phoneNumber">Phone Number:</label>
-        <input nbInput
+        <input fullWidth nbInput
                formControlName="phoneNumber"
                id="phoneNumber"
                name="phoneNumber"
@@ -184,13 +184,13 @@
 
       <div class="form-control-group">
         <label class="label" for="birth-day">Date of birth:</label>
-        <input
-          nbInput
-          formControlName="birthday"
-          fullWidth
-          id="birth-day"
-          placeholder="Date of birth"
-          [nbDatepicker]="datepicker">
+        <input fullWidth
+               nbInput
+               formControlName="birthday"
+               fullWidth
+               id="birth-day"
+               placeholder="Date of birth"
+               [nbDatepicker]="datepicker">
         <nb-datepicker #datepicker></nb-datepicker>
         <ng-container *ngIf="secondForm.controls.birthday.invalid && secondForm.controls.birthday.touched">
           <p class="error-message" *ngIf="secondForm.controls.birthday.errors?.required">
@@ -230,7 +230,7 @@
     <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" aria-labelledby="title">
       <div class="form-control-group">
         <label class="label" for="CnamId">CnamId:</label>
-        <input nbInput
+        <input fullWidth nbInput
                formControlName="cnamId"
                id="CnamId"
                name="cnamId"
@@ -259,7 +259,7 @@
       </div>
       <div class="form-control-group">
         <label class="label" for="SocialStatus">SocialStatus:</label>
-        <input nbInput
+        <input fullWidth nbInput
                formControlName="socialStatus"
                id="SocialStatus"
                name="socialStatus"
@@ -313,11 +313,11 @@
         <div class="form-group  col-md-8 sahti-4th-step-field">
           <div class="form-control-group" *ngIf="ShowDoctor">
             <label class="label" for="DoctorNumber">DoctorNumber:</label>
-            <input
-              formControlName="doctorNumber"
-              nbInput
-              id="DoctorNumber"
-              placeholder="DoctorNumber">
+            <input fullWidth
+                   formControlName="doctorNumber"
+                   nbInput
+                   id="DoctorNumber"
+                   placeholder="DoctorNumber">
             <ng-container *ngIf="forthForm.controls.doctorNumber.touched">
               <p class="error-message" *ngIf="forthForm.hasError('doctorNumberNaN')">
                 {{forthForm.errors['doctorNumberNaN']}}
@@ -331,11 +331,11 @@
           <div class="form-control-group" *ngIf="ShowDoctor">
             <div class="form-control-group" *ngIf="ShowDoctor">
               <label class="label" for="grade">Grade:</label>
-              <input
-                nbInput
-                formControlName="grade"
-                id="grade"
-                placeholder="Grade">
+              <input fullWidth
+                     nbInput
+                     formControlName="grade"
+                     id="grade"
+                     placeholder="Grade">
               <ng-container *ngIf="forthForm.controls.grade.touched">
                 <p class="error-message" *ngIf="forthForm.hasError('gradeNull')">
                   {{forthForm.errors['gradeNull']}}
@@ -348,11 +348,11 @@
           <div class="form-control-group" *ngIf="ShowDoctor">
             <div class="form-control-group" *ngIf="ShowDoctor">
               <label class="label" for="speciality">Speciality:</label>
-              <input
-                nbInput
-                formControlName="speciality"
-                id="speciality"
-                placeholder="Speciality">
+              <input fullWidth
+                     nbInput
+                     formControlName="speciality"
+                     id="speciality"
+                     placeholder="Speciality">
               <ng-container *ngIf="forthForm.controls.speciality.touched">
                 <p class="error-message" *ngIf="forthForm.hasError('specialityNull')">
                   {{forthForm.errors['specialityNull']}}
@@ -365,11 +365,11 @@
           <div class="form-control-group" *ngIf="ShowDoctor">
             <div class="form-control-group" *ngIf="ShowDoctor">
               <label class="label" for="serviceHospital">ServiceHospital:</label>
-              <input
-                nbInput
-                formControlName="serviceHospital"
-                id="serviceHospital"
-                placeholder="ServiceHospital">
+              <input fullWidth
+                     nbInput
+                     formControlName="serviceHospital"
+                     id="serviceHospital"
+                     placeholder="ServiceHospital">
               <ng-container *ngIf="forthForm.controls.serviceHospital.touched">
                 <p class="error-message" *ngIf="forthForm.hasError('serviceHospitalNull')">
                   {{forthForm.errors['serviceHospitalNull']}}
@@ -382,11 +382,11 @@
           <div class="form-control-group" *ngIf="ShowDoctor||ShowTechnician">
 
             <label class="label" for="officeLocalisation">OfficeLocalisation:</label>
-            <input
-              nbInput
-              formControlName="officeLocalisation"
-              id="officeLocalisation"
-              placeholder="OfficeLocalisation">
+            <input fullWidth
+                   nbInput
+                   formControlName="officeLocalisation"
+                   id="officeLocalisation"
+                   placeholder="OfficeLocalisation">
             <ng-container *ngIf="forthForm.controls.officeLocalisation.touched">
               <p class="error-message" *ngIf="forthForm.hasError('officeLocalisationNull')">
                 {{forthForm.errors['officeLocalisationNull']}}
@@ -397,11 +397,11 @@
           <div class="form-control-group" *ngIf="ShowPharmacian">
 
             <label class="label" for="pharmacyLocalisation">Pharmacy Localisation:</label>
-            <input
-              nbInput
-              formControlName="pharmacyLocalisation"
-              id="pharmacyLocalisation"
-              placeholder="Pharmacy Localisation">
+            <input fullWidth
+                   nbInput
+                   formControlName="pharmacyLocalisation"
+                   id="pharmacyLocalisation"
+                   placeholder="Pharmacy Localisation">
             <ng-container *ngIf="forthForm.controls.pharmacyLocalisation.touched">
               <p class="error-message" *ngIf="forthForm.hasError('pharmacyLocalisationNull')">
                 {{forthForm.errors['pharmacyLocalisationNull']}}
@@ -412,11 +412,14 @@
           <div class="form-control-group" *ngIf="ShowTechnician">
 
             <label class="label" for="officeType">Office Type:</label>
-            <input
-              nbInput
-              formControlName="officeType"
-              id="officeType"
-              placeholder="Office Type">
+            <nb-select fullWidth id="officeType" formControlName="officeType" placeholder="Select Office Type">
+              <nb-option *ngFor="let office of officeTypeItems" value="{{office.value}}">{{office.name}}</nb-option>
+            </nb-select>
+            <!--            <input fullWidth-->
+            <!--              nbInput-->
+            <!--              formControlName="officeType"-->
+            <!--              id="officeType"-->
+            <!--              placeholder="Office Type">-->
             <ng-container *ngIf="forthForm.controls.officeType.touched">
               <p class="error-message" *ngIf="forthForm.hasError('officeTypeNull')">
                 {{forthForm.errors['officeTypeNull']}}
@@ -427,11 +430,11 @@
           <div class="form-control-group" *ngIf="ShowTechnician">
 
             <label class="label" for="workField">Work Field:</label>
-            <input
-              nbInput
-              formControlName="workField"
-              id="workField"
-              placeholder="Work Field">
+            <input fullWidth
+                   nbInput
+                   formControlName="workField"
+                   id="workField"
+                   placeholder="Work Field">
             <ng-container *ngIf="forthForm.controls.workField.touched">
               <p class="error-message" *ngIf="forthForm.hasError('workFieldNull')">
                 {{forthForm.errors['workFieldNull']}}

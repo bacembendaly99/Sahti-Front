@@ -21,6 +21,17 @@ export class NgxRegisterComponent implements OnInit {
     'patient': {},
   };
 
+  officeTypeItems = [
+    {
+      value: 'Public',
+      name: 'public',
+    },
+    {
+      value: 'Private',
+      name: 'private',
+    },
+  ];
+
   civilStatusItems = [
     {
       value: 'Married',
@@ -230,7 +241,7 @@ export class NgxRegisterComponent implements OnInit {
   openDialog(dialog: TemplateRef<any>) {
     this.dialogService.open(
       dialog,
-      { context: 'We have sent you an email to verify your account!' });
+      {context: 'We have sent you an email to verify your account!'});
   }
 
   get gender() {
