@@ -71,7 +71,7 @@ export class AjouterVisiteStep2Component implements OnInit {
 
   fillMedsNames() {
     this.optionMeds = [];
-    for (let med in this.allMeds) {
+    for (const med in this.allMeds) {
       if (med !== null) {
         this.optionMeds.push(this.allMeds[med]['name']);
       }
@@ -108,9 +108,14 @@ export class AjouterVisiteStep2Component implements OnInit {
   removeQuantity(i: number) {
     this.medication().removeAt(i);
   }
-
+  mapMedicamentsToIds()
+{
+  const meds = this.visiteForm.value.meds;
+  for (const med of meds) {
+  }
+}
   onSubmit(): void {
     console.log(this.currentPatientID);
-
+    console.log(this.visiteForm.value);
   }
 }
