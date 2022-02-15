@@ -47,7 +47,8 @@ export class NgxLoginComponent implements OnInit {
     if (this.loginForm.invalid) return;
     this.authService.login(this.loginForm.value).subscribe(
       data => {
-        this.router.navigate(['pages']);
+        console.log('data', data);
+        this.router.navigate(['pages', 'home-patient', data.patient['id']]);
       },
       error => {
         console.log('error login: ', error);
