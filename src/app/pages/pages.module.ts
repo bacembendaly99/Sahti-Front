@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {
-    NbAccordionModule,
-    NbAlertModule, NbAutocompleteModule,
-    NbButtonModule, NbCardModule,
-    NbCheckboxModule,
-    NbDatepickerModule, NbIconModule,
-    NbInputModule,
-    NbMenuModule, NbRadioModule, NbSelectModule,
+  NbAccordionModule,
+  NbAlertModule, NbAutocompleteModule,
+  NbButtonModule, NbCardModule,
+  NbCheckboxModule,
+  NbDatepickerModule, NbIconModule,
+  NbInputModule, NbListModule,
+  NbMenuModule, NbRadioModule, NbSelectModule,
 } from '@nebular/theme';
 
 import {ThemeModule} from '../@theme/theme.module';
@@ -33,37 +33,40 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ValiderPrescriptionStep2Component} from './valider-prescription-step2/valider-prescription-step2.component';
-import { AjouterVisiteTechnicienStep2Component } from './ajouter-visite-technicien-step2/ajouter-visite-technicien-step2.component';
+import {AjouterVisiteTechnicienStep2Component} from './ajouter-visite-technicien-step2/ajouter-visite-technicien-step2.component';
+import {DirectivesModuleModule} from '../directives/directives-module/directives-module.module';
 
 
 @NgModule({
-    imports: [
-        PagesRoutingModule,
-        ThemeModule,
-        NbMenuModule,
-        DashboardModule,
-        ECommerceModule,
-        MiscellaneousModule,
-        FormsModule,
-        NbAlertModule,
-        NbInputModule,
-        NbCheckboxModule,
-        NbButtonModule,
-        NbDatepickerModule,
-        NbRadioModule,
-        ReactiveFormsModule,
-        NbCardModule,
-        TablesModule,
-        MatBottomSheetModule,
-        MatFormFieldModule,
-        MatChipsModule,
-        MatIconModule,
-        NbIconModule,
-        MatAutocompleteModule,
-        NbSelectModule,
-        NbAccordionModule,
-        NbAutocompleteModule,
-    ],
+  imports: [
+    PagesRoutingModule,
+    ThemeModule,
+    NbMenuModule,
+    DashboardModule,
+    ECommerceModule,
+    MiscellaneousModule,
+    FormsModule,
+    NbAlertModule,
+    NbInputModule,
+    NbCheckboxModule,
+    NbButtonModule,
+    NbDatepickerModule,
+    NbRadioModule,
+    ReactiveFormsModule,
+    NbCardModule,
+    TablesModule,
+    MatBottomSheetModule,
+    MatFormFieldModule,
+    MatChipsModule,
+    MatIconModule,
+    NbIconModule,
+    MatAutocompleteModule,
+    NbSelectModule,
+    NbAccordionModule,
+    NbAutocompleteModule,
+    NbListModule,
+    DirectivesModuleModule,
+  ],
   declarations: [
     PagesComponent,
     AjouterVisiteComponent,
