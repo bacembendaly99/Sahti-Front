@@ -7,6 +7,7 @@ import {Observable, of} from 'rxjs';
 import {FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
 import {MedicalCheckup} from '../../shared/medical-checkup.interface';
+import {NbDialogService} from '@nebular/theme';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class AjouterVisiteStep2Component implements OnInit {
     private patientService: PatientService,
     private doctorService: DoctorService,
     private formBuilder: FormBuilder,
+    private dialogService: NbDialogService,
   ) {
     this.visiteForm = this.formBuilder.group({
       meds: this.formBuilder.array([]),
@@ -126,11 +128,15 @@ export class AjouterVisiteStep2Component implements OnInit {
   removeQuantity(i: number) {
     this.medication().removeAt(i);
   }
-transformMeds(): void {
-  this.visiteForm.value.meds.forEach(item => { console.log('item:', item);
-    this.selectedMeds.push(item.med); } );
-}
-  onSubmit(): void {
+
+  transformMeds(): void {
+    this.visiteForm.value.meds.forEach(item => {
+      console.log('item:', item);
+      this.selectedMeds.push(item.med);
+    });
+  }
+
+  onSubmit(dialog): void {
 
     console.log('current patient id : ', this.currentPatientID);
     console.log('selected meds', this.selectedMeds);
@@ -143,7 +149,11 @@ transformMeds(): void {
     this.medicalCheckup.namesOfChronicDiseases.push(this.visiteForm.value.chronicDisease);
     this.medicalCheckup.namesOfChronicDiseases.shift();
     this.medicalCheckup.controlDate = this.visiteForm.value.dateOfControl;
-console.log('medical checkup: ' , this.medicalCheckup);
+    console.log('medical checkup: ', this.medicalCheckup);
     this.doctorService.ajouterVisite(this.medicalCheckup);
+
+    this.dialogService.open(
+      dialog,
+      { context: 'Visite Ajoutee !' });
   }
 }

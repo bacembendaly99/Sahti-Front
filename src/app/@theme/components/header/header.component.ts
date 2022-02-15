@@ -13,8 +13,8 @@ import {map, takeUntil} from 'rxjs/operators';
 import {Subject, Observable} from 'rxjs';
 import {RippleService} from '../../../@core/utils/ripple.service';
 import {ManageAccountService} from '../../../services/manage-account/manage-account.service';
-import {AuthenticationService} from "../../../services/authentification/authentication.service";
-import {Router} from "@angular/router";
+import {AuthenticationService} from '../../../services/authentification/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-header',
@@ -143,7 +143,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     localStorage.removeItem('user');
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
-    this.http.navigate([`home`])
+    this.http.navigate([`home`]);
 
   }
 }

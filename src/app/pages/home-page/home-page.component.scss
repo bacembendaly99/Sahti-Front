@@ -108,14 +108,16 @@ body {
     border: 3px solid #8484b7;
     border-radius: 50%;
     overflow: hidden;
-    max-height: 13vw;
-    max-width: 13vw;
+    max-height: 140px;
+    max-width: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
     img {
       width: 14vw;
       height: 14vw;
+      max-height: 140px;
+      max-width: 140px;
     }
   }
   }

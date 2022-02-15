@@ -11,7 +11,7 @@
         <div>Blood Type : {{currentPatient?.medicalRecord.bloodType}}</div>
       </div>
     </div>
-    <form [formGroup]="visiteForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="visiteForm" (ngSubmit)="onSubmit(dialog)">
 
       <div class="meds_area" formArrayName="meds">
         <div class="row">
@@ -67,3 +67,12 @@
 
   </nb-card-body>
 </nb-card>
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header></nb-card-header>
+    <nb-card-body>{{ data }}</nb-card-body>
+    <nb-card-footer>
+<!--      <button nbButton matRipple (click)="ref.close()">Close Dialog</button>-->
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
