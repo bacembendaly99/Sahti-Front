@@ -1,9 +1,14 @@
 <nb-card>
   <nb-card-header>Ajouter Visite Technique</nb-card-header>
   <nb-card-body>
-    <div>First Name: {{currentPatient?.firstName}}</div>
-    <div>Last Name: {{currentPatient?.lastName}}</div>
-    <div>ila5</div><br>
+    <div class="row sahti-visite-row">
+      <div class="col-sm-8">
+        <div>{{currentPatient?.firstName}} {{currentPatient?.lastName}}</div>
+      </div>
+      <div class="col-sm-4">
+        <div>Blood Type : {{currentPatient?.medicalRecord.bloodType}}</div>
+      </div>
+    </div>
     <form [formGroup]="visiteTForm" (ngSubmit)="onSubmit()">
       <div class="form-control-group" >
         <label class="label" for="title">Title :</label>
