@@ -4,6 +4,9 @@ import {ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../services/patient.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {NbIconLibraries} from '@nebular/theme';
+import {MedicalCheckup} from "../../shared/medical-checkup.interface";
+import {TechnicalCheckup} from "../../shared/technical-checkup.interface";
+import {TechnicienService} from "../../services/technicien.service";
 
 @Component({
   selector: 'ngx-ajouter-visite-technicien-step2',
@@ -15,12 +18,20 @@ export class AjouterVisiteTechnicienStep2Component implements OnInit {
   currentPatientID: number;
   visiteTForm: FormGroup;
   evaIcons = [];
+  technicalCheckup: TechnicalCheckup = {
+    additionalInformation: '',
+    title: '',
+    technicalFiles: null,
+    doctorId: 0,
+    patientId: 0,
+  };
 
   constructor(
     private route: ActivatedRoute,
     private patientService: PatientService,
     private formBuilder: FormBuilder,
     iconsLibrary: NbIconLibraries,
+    private technicanService: TechnicienService,
   ) {
     this.visiteTForm = this.formBuilder.group({
       title: '',
@@ -120,6 +131,13 @@ export class AjouterVisiteTechnicienStep2Component implements OnInit {
   }
 
   onSubmit() {
+this.technicalCheckup.technicalFiles = this.files[0];
+this.technicalCheckup.additionalInformation = this.visiteTForm.value.additionalInfo;
+this.technicalCheckup.title = this.visiteTForm.value.title;
+    this.technicalCheckup.doctorId = JSON.parse(localStorage.getItem('user')).id;
+    this.technicalCheckup.patientId = this.currentPatientID;
+    this.technicanService.ajouterTVisite(this.technicalCheckup);
+    console.log(this.technicalCheckup);
 
   }
 }
