@@ -8,6 +8,7 @@ import {Subject, Observable} from 'rxjs';
 import {RippleService} from '../../../@core/utils/ripple.service';
 import {ManageAccountService} from '../../../services/manage-account/manage-account.service';
 import {AuthenticationService} from "../../../services/authentification/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'ngx-header',
@@ -65,6 +66,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private rippleService: RippleService,
     private manageAccountService: ManageAccountService,
     private authService: AuthenticationService,
+    private http: Router,
   ) {
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
@@ -124,5 +126,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.menuService.navigateHome();
     return false;
+  }
+
+  logOut() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    this.http.navigate([`home`])
+
   }
 }
