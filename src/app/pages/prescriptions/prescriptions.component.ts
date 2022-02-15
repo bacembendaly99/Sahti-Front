@@ -19,7 +19,7 @@ export class PrescriptionsComponent implements OnInit {
   getPrescriptions(id: any) {
     this.patientService.getPrescriptions(id).subscribe(
       data => {
-        this.prescriptions = JSON.stringify(data);
+        this.prescriptions = data;
         console.log(this.prescriptions);
       },
       error => {
