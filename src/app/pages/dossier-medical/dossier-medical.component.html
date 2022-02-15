@@ -1,1 +1,75 @@
-<p>{{selectedFolder}}</p>
+<nb-card>
+  <nb-card-header>Dossier Medical de {{currentUser.firstName + ' ' + currentUser.lastName}} : </nb-card-header>
+  <nb-card-body>
+    <nb-accordion multi>
+      <nb-accordion-item>
+        <nb-accordion-item-header matRipple>
+          Transcriptions :
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <nb-list *ngFor="let transciption of selectedFolder.transcriptions">
+              <nb-list-item fullWidth *ngFor="let med of transciption.medicaments">
+                <div class="row dossier-medical">
+                  <div class="col-sm-2">{{transciption.id}}</div>
+                  <div class="col-sm-8">{{med.name}}</div>
+                  <div class="col-sm-2" *ngIf="transciption.status !== 'not-checked'">
+                    <nb-icon icon="checkmark-square-2" pack="eva"></nb-icon>
+                  </div>
+                </div>
+              </nb-list-item>
+
+          </nb-list>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header matRipple>
+          Technical Checkups :
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <nb-list>
+            <nb-list-item fullWidth *ngFor="let technical of selectedFolder.technicalCheckUps">
+
+            </nb-list-item>
+          </nb-list>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header matRipple>
+          Medical Checkups :
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <nb-list-item class="medicalCheckups" fullWidth *ngFor="let medical of selectedFolder.medicalCheckUps">
+            <div class="row">{{medical.controlDate}}</div>
+            <div class="row">
+              <ul>
+                <li>
+                  doctor : {{medical.doctor.firstName + medical.doctor.lastName}}
+                </li>
+                <li>
+                  Transcription id : {{medical.transcription.id}}
+                </li>
+                <li *ngIf="medical.transcription.remarks !== '' || medical.transcription.remarks !== null">
+                  Transcription remarks : {{medical.transcription.remarks}}
+                </li>
+                <li *ngIf="medical.additionalInformation !== '' || medical.additionalInformation !== null">
+                  Additional Info : {{medical.additionalInformation}}
+                </li>
+              </ul>
+            </div>
+          </nb-list-item>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header matRipple>
+          Blood Type :
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          {{selectedFolder['bloodType']}}
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </nb-card-body>
+</nb-card>

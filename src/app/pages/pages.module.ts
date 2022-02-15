@@ -5,7 +5,7 @@ import {
   NbButtonModule, NbCardModule,
   NbCheckboxModule,
   NbDatepickerModule, NbIconModule,
-  NbInputModule,
+  NbInputModule, NbListModule,
   NbMenuModule, NbRadioModule, NbSelectModule,
 } from '@nebular/theme';
 
@@ -64,6 +64,7 @@ import {DirectivesModuleModule} from '../directives/directives-module/directives
     NbSelectModule,
     NbAccordionModule,
     NbAutocompleteModule,
+    NbListModule,
     DirectivesModuleModule,
   ],
   declarations: [
