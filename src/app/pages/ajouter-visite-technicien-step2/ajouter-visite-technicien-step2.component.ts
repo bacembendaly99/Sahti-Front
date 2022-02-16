@@ -3,7 +3,7 @@ import {Patient} from '../../shared/patient.interface';
 import {ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../services/patient.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {NbIconLibraries} from '@nebular/theme';
+import {NbDialogService, NbIconLibraries} from '@nebular/theme';
 import {MedicalCheckup} from "../../shared/medical-checkup.interface";
 import {TechnicalCheckup} from "../../shared/technical-checkup.interface";
 import {TechnicienService} from "../../services/technicien.service";
@@ -32,6 +32,7 @@ export class AjouterVisiteTechnicienStep2Component implements OnInit {
     private formBuilder: FormBuilder,
     iconsLibrary: NbIconLibraries,
     private technicanService: TechnicienService,
+    private dialogService: NbDialogService,
   ) {
     this.visiteTForm = this.formBuilder.group({
       title: '',
@@ -130,7 +131,7 @@ export class AjouterVisiteTechnicienStep2Component implements OnInit {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
-  onSubmit() {
+  onSubmit(dialog) {
 this.technicalCheckup.technicalFiles = this.files[0];
 this.technicalCheckup.additionalInformation = this.visiteTForm.value.additionalInfo;
 this.technicalCheckup.title = this.visiteTForm.value.title;
@@ -139,5 +140,8 @@ this.technicalCheckup.title = this.visiteTForm.value.title;
     this.technicanService.ajouterTVisite(this.technicalCheckup);
     console.log(this.technicalCheckup);
 
+    this.dialogService.open(
+      dialog,
+      { context: 'Visite Ajoutee !' });
   }
 }
