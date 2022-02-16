@@ -1,0 +1,78 @@
+<nb-card>
+  <nb-card-header>Ajouter Visite
+  </nb-card-header>
+  <nb-card-body>
+
+    <div class="row sahti-visite-row">
+      <div class="col-sm-8">
+        <div>{{currentPatient?.firstName}} {{currentPatient?.lastName}}</div>
+      </div>
+      <div class="col-sm-4">
+        <div>Blood Type : {{currentPatient?.medicalRecord.bloodType}}</div>
+      </div>
+    </div>
+    <form [formGroup]="visiteForm" (ngSubmit)="onSubmit(dialog)">
+
+      <div class="meds_area" formArrayName="meds">
+        <div class="row">
+          <p id="prescription">Prescription : </p>
+        </div>
+        <div class="row" *ngFor="let med of medication().controls; let i=index" [formGroupName]="i" >
+          <div class="col-sm-8">
+            <div class="form-group" >
+              <input [nbAutocomplete]="autoControl" formControlName="med" nbInput fullWidth placeholder="mediacation" (click)="changeMedIndex(i)" id="med">
+              <nb-autocomplete #autoControl>
+                <nb-option *ngFor="let option of filteredMedOptions$ | async" [value]="option">
+                  {{ option }}
+                </nb-option>
+              </nb-autocomplete>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <button type="button" nbButton matRipple ghost status="danger"  (click)="removeQuantity(i)">DELETE</button>
+          </div>
+        </div>
+        <button type="button" nbButton matRipple outline status="warning" (click)="addMed()">Add new medicine</button>
+      </div>
+
+
+      <div class="form-control-group" >
+        <label class="label" for="remarks">Remarks :</label>
+        <textarea rows="5" name="remarks" nbInput fullWidth formControlName="remarks" placeholder="remarks"  id="remarks"></textarea>
+      </div>
+      <div class="form-control-group" >
+        <label class="label" for="additional-info">Additional Infos :</label>
+        <textarea rows="5" nbInput name="additional-info" fullWidth formControlName="additionalInfo"   placeholder="Additional infos"  id="additional-info"></textarea>
+      </div>
+      <div class="form-control-group" >
+        <label class="label" for="ajouter-disease">Ajouter Chronic Disease :</label>
+        <input name="chronicDisease" formControlName="chronicDisease" type="text" nbInput fullWidth placeholder="ajouter disease" id="ajouter-disease">
+      </div>
+      <div class="form-control-group">
+        <label class="label" for="control-date">Date of control:</label>
+        <input
+          formControlName="dateOfControl"
+          nbInput
+          fullWidth
+          id="control-date"
+          placeholder="Date of Control"
+          [nbDatepicker]="datepicker">
+        <br>
+        <nb-datepicker #datepicker ></nb-datepicker>
+      </div>
+
+      <br>
+      <button nbButton status="primary" [disabled]="!visiteForm.valid">Ajouter</button>
+    </form>
+
+  </nb-card-body>
+</nb-card>
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header></nb-card-header>
+    <nb-card-body>{{ data }}</nb-card-body>
+    <nb-card-footer>
+<!--      <button nbButton matRipple (click)="ref.close()">Close Dialog</button>-->
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

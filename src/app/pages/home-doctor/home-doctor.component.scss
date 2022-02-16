@@ -1,0 +1,26 @@
+nb-card {
+  width: 100%;
+
+}
+button {
+  width: 250px;
+}
+
+nb-card-body {
+  align-content: center;
+}
+
+nb-icon[icon="birthday-cake"]{
+  color: #d364d0;
+}
+
+#doctor_space{
+  padding: 1rem 1.5rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  color: #222b45;
+  font-family: Open Sans, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}

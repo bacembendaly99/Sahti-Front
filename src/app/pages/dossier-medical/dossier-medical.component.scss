@@ -1,0 +1,16 @@
+nb-list-item .row.dossier-medical {
+  width: 100%;
+}
+
+.medicalCheckups {
+  align-items: flex-start;
+  flex-direction: column;
+
+  .row {
+    margin-bottom: 15px;
+
+    ul li {
+      margin: 10px;
+    }
+  }
+}

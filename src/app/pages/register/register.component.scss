@@ -1,0 +1,18 @@
+:host {
+  .title {
+    margin-bottom: 2rem;
+  }
+}
+
+carousel {
+  height: inherit;
+  .carousel-cell{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.next-button, .previous-button {
+  margin-left: 25%;
+}

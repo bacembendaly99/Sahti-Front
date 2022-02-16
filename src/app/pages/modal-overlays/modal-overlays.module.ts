@@ -77,18 +77,21 @@ const SERVICES = [
 ];
 
 @NgModule({
-  imports: [
-    ...MODULES,
-  ],
-  declarations: [
-    ...COMPONENTS,
-  ],
-  providers: [
-    ...SERVICES,
-  ],
-  entryComponents: [
-    ...ENTRY_COMPONENTS,
-  ],
+    imports: [
+        ...MODULES,
+    ],
+    declarations: [
+        ...COMPONENTS,
+    ],
+    providers: [
+        ...SERVICES,
+    ],
+    entryComponents: [
+        ...ENTRY_COMPONENTS,
+    ],
+    exports: [
+        NgxPopoverCardComponent,
+    ],
 })
 export class ModalOverlaysModule {
 }

@@ -1,0 +1,19 @@
+<nb-card>
+  <nb-card-header>Ajouter Visite</nb-card-header>
+  <nb-card-body>
+    <h3>Today's Date : {{date | date: 'shortDate' }}</h3>
+
+    <form #ajouterVisite="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-control-group" >
+        <label for="ajouter-visite">Ajouter Visite</label>
+        <input name="id" [(ngModel)]="id" type="number" nbInput fullWidth placeholder="id du patient" id="ajouter-visite">
+      </div>
+      <br>
+      <button nbButton status="primary" [disabled]="!ajouterVisite.form.valid">Ajouter</button>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+
+
+

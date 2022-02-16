@@ -1,6 +1,74 @@
-import { NbMenuItem } from '@nebular/theme';
+import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
+  {
+    title: 'Espace Docteur',
+    group: true,
+  },
+  {
+    title: 'Home',
+    icon: 'home-outline',
+    link: '/pages/home-doctor',
+    home: true,
+    hidden: true,
+  },
+  {
+    title: 'Ajouter visite',
+    icon: 'activity-outline',
+    link: '/pages/ajouter-visite',
+    home: true,
+  },
+  {
+    title: 'Espace Patient',
+    group: true,
+  },
+  {
+    title: 'Home',
+    icon: 'home-outline',
+    link: '/pages/home-patient',
+    home: true,
+  },
+  {
+    title: 'Dossier médical',
+    icon: 'folder-add-outline',
+    link: '/pages/dossier-medical',
+    home: true,
+  },
+  {
+    title: 'Prescriptions',
+    icon: 'list-outline',
+    link: '/pages/prescriptions',
+    home: true,
+  },
+  {
+    title: 'Espace Pharmacien',
+    group: true,
+  },
+  {
+    title: 'Valider Prescription',
+    icon: 'list-outline',
+    link: '/pages/valider-prescription',
+    home: true,
+  },
+  {
+    title: 'Espace Technicien',
+    group: true,
+  },
+  {
+    title: 'Ajouter visite',
+    icon: 'activity-outline',
+    link: '/pages/ajouter-visite-technicien',
+    home: true,
+  },
+  {
+    title: '-----------------------------------',
+  },
+  {
+    title: '-----------------------------------',
+  },
+  {
+    title: '-----------------------------------',
+  },
   {
     title: 'E-commerce',
     icon: 'shopping-cart-outline',

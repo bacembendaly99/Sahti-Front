@@ -66,7 +66,8 @@ import { FormsModule } from '@angular/forms';
         TrafficChartComponent,
     ],
     exports: [
-        DashboardComponent
-    ]
+        WeatherComponent,
+        StatusCardComponent,
+    ],
 })
 export class DashboardModule { }

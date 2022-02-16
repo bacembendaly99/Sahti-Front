@@ -1,0 +1,24 @@
+.sahti-visite-row {
+  margin: 25px 10px;
+  font-weight: 600;
+}
+
+.meds_area{
+  margin: 15px;
+  & > button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  #prescription{
+    padding: 1rem 1.5rem;
+    padding-bottom: 0;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    color: #222b45;
+    font-family: Open Sans, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+  }
+}

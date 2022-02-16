@@ -1,16 +1,65 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 
-import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
-import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import {AppComponent} from '../app.component';
+import {PagesComponent} from './pages.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {ECommerceComponent} from './e-commerce/e-commerce.component';
+import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
+import {HomeDoctorComponent} from './home-doctor/home-doctor.component';
+import {AjouterVisiteComponent} from './ajouter-visite/ajouter-visite.component';
+import {HomePatientComponent} from './home-patient/home-patient.component';
+import {DossierMedicalComponent} from './dossier-medical/dossier-medical.component';
+import {PrescriptionsComponent} from './prescriptions/prescriptions.component';
+import {ValiderPrescriptionComponent} from './valider-prescription/valider-prescription.component';
+import {AjouterVisiteTechnicienComponent} from './ajouter-visite-technicien/ajouter-visite-technicien.component';
+import {AjouterVisiteStep2Component} from './ajouter-visite-step2/ajouter-visite-step2.component';
+import {ValiderPrescriptionStep2Component} from './valider-prescription-step2/valider-prescription-step2.component';
+import {AjouterVisiteTechnicienStep2Component} from './ajouter-visite-technicien-step2/ajouter-visite-technicien-step2.component';
 
 const routes: Routes = [{
   path: '',
-  component: AppComponent,
+  component: PagesComponent,
   children: [
+    {
+      path: 'ajouter-visite-technicien',
+      component: AjouterVisiteTechnicienComponent,
+    },
+    {
+      path: 'ajouter-visite-technicien/:id',
+      component: AjouterVisiteTechnicienStep2Component,
+    },
+    {
+      path: 'valider-prescription',
+      component: ValiderPrescriptionComponent,
+    },
+    {
+      path: 'valider-prescription/:id',
+      component: ValiderPrescriptionStep2Component,
+    },
+    {
+      path: 'prescriptions/:id',
+      component: PrescriptionsComponent,
+    },
+    {
+      path: 'dossier-medical/:id',
+      component: DossierMedicalComponent,
+    },
+    {
+      path: 'home-patient/:id',
+      component: HomePatientComponent,
+    },
+    {
+      path: 'home-doctor/:id',
+      component: HomeDoctorComponent,
+    },
+    {
+      path: 'ajouter-visite',
+      component: AjouterVisiteComponent,
+    },
+    {
+      path: 'ajouter-visite/:id',
+      component: AjouterVisiteStep2Component,
+    },
     {
       path: 'dashboard',
       component: ECommerceComponent,
